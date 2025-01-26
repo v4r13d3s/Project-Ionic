@@ -1,3 +1,49 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+   <!-- Menú lateral -->
+   <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        
+          <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false"></ion-menu-button>
+          </ion-buttons>
+          <ion-title>Menu Content
+
+        </ion-title>
+        
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-item routerLink="/home">Inicio</ion-item>
+        <ion-item routerLink="/pedidos">Pedidos</ion-item>
+        <ion-item routerLink="/perfil">Perfil</ion-item>
+        <ion-item routerLink="/favoritos">Favoritos</ion-item>
+        <ion-item routerLink="/categorias">Categorias</ion-item>
+        <ion-item routerLink="/notificaciones">Notificaciones</ion-item>
+        <ion-item routerLink="/configuracion">Configuración</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="light">
+      <ion-tab-button tab="home" routerLink="/home">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="pedidos" routerLink="/pedidos">
+        <ion-icon name="cart"></ion-icon>
+        <ion-label>Pedidos</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="perfil" routerLink="/perfil">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-app>
