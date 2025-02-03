@@ -25,3 +25,53 @@
 #container a {
   text-decoration: none;
 }
+
+
+
+swiper-container, swiper-slide {
+  width: 100%; 
+}
+
+swiper-container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.image-container {
+  display: flex; /* Organiza las imágenes horizontalmente */
+  gap: 8px; /* Espacio entre las imágenes */
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  padding: 8px; /* Espacio interno */
+}
+
+.image-container img {
+  width: 100px; /* Ancho de cada imagen */
+  height: auto; /* Mantiene la proporción */
+  border-radius: 8px;
+}
+
+/*.cards {
+  border-radius: 0;
+  width: 90%;
+  height: auto;
+  margin: 20px ;
+} */
+
+.card-container {
+  display: flex;
+  justify-content: center; /* Centra las cards horizontalmente */
+  align-items: center;     /* Centra las cards verticalmente */
+  flex-wrap: wrap;         /* Permite que las cards se envuelvan si no caben en una línea */
+  gap: 8px;          /* Espacio entre las cards */
+  
+}
+
+.card-container ion-card {
+  flex: 1 1 300px;         /* Flex-grow, flex-shrink, y flex-basis */
+  max-width: 300px;        /* Ancho máximo de cada card */
+}
+
+/* Añade un poco más de espacio solo a la primera card */
+.card-container ion-card:first-child {
+  margin-top: 20px;        /* Espacio adicional arriba de la primera card */
+}

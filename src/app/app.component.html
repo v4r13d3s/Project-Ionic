@@ -15,13 +15,34 @@
     </ion-header>
     <ion-content class="ion-padding">
       <ion-list>
-        <ion-item routerLink="/home">Inicio</ion-item>
-        <ion-item routerLink="/pedidos">Pedidos</ion-item>
-        <ion-item routerLink="/perfil">Perfil</ion-item>
-        <ion-item routerLink="/favoritos">Favoritos</ion-item>
-        <ion-item routerLink="/categorias">Categorias</ion-item>
-        <ion-item routerLink="/notificaciones">Notificaciones</ion-item>
-        <ion-item routerLink="/configuracion">Configuración</ion-item>
+        <ion-item routerLink="/home">
+          <ion-label>Inicio</ion-label>
+          <ion-icon name="home-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/pedidos">
+          <ion-label>Pedidos</ion-label>
+          <ion-icon name="cart-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/perfil">
+          <ion-label>Perfil</ion-label>
+          <ion-icon name="person-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/favoritos">
+          <ion-label>Favoritos</ion-label>
+          <ion-icon name="heart-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/categorias">
+          <ion-label>Categorias</ion-label>
+          <ion-icon name="apps-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/notificaciones">
+          <ion-label>Notificaciones</ion-label>
+          <ion-icon name="notifications-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/configuracion">
+          <ion-label>Configuración</ion-label>
+          <ion-icon name="settings-outline" slot="end"></ion-icon>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
@@ -31,14 +52,18 @@
   </div>
 
   <ion-tabs>
-    <ion-tab-bar slot="bottom" color="light">
+    <ion-tab-bar slot="bottom">
       <ion-tab-button tab="home" routerLink="/home">
         <ion-icon name="home"></ion-icon>
         <ion-label>Inicio</ion-label>
       </ion-tab-button>
-      <ion-tab-button tab="pedidos" routerLink="/pedidos">
-        <ion-icon name="cart"></ion-icon>
-        <ion-label>Pedidos</ion-label>
+      <ion-tab-button tab="categorias" routerLink="/categorias">
+        <ion-icon name="duplicate-outline"></ion-icon>
+        <ion-label>Categorias</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="favoritos" routerLink="/favoritos">
+        <ion-icon name="star-outline"></ion-icon>
+        <ion-label>Favoritos</ion-label>
       </ion-tab-button>
       <ion-tab-button tab="perfil" routerLink="/perfil">
         <ion-icon name="person"></ion-icon>

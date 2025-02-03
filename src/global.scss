@@ -9,6 +9,13 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+ ion-tab-bar {
+    --background: #052444;
+    --color: #ffffff;
+    --color-selected: #ffffff;
+  }
+  
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -25,9 +32,5 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-ion-tab-bar {
-    --background: #0e80f3; /* Fondo claro */
-    --color: #333;         /* Color de texto e íconos */
-    --color-selected: #007bff; /* Color del ícono y texto seleccionados */
-  }
+
   
