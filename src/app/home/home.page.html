@@ -1,25 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+<!-- Menú lateral -->
+<app-menu-lateral></app-menu-lateral>
 
-    <ion-title>Inicio</ion-title>
+<!-- Contenido principal -->
 
-    <ion-buttons slot="end">
-      <ion-icon name="scan-circle-outline" style="font-size: 35px; margin-right: 10px;"></ion-icon>
-      <ion-icon name="cart-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Inicio</ion-title>
+      <ion-buttons slot="end">
+        <ion-icon name="notifications-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
+  <ion-content [fullscreen]="true">
+    <div style="display: flex; align-items: center;">
+      <ion-searchbar animated="true" placeholder="Buscar Producto" style="flex-grow: 1;"></ion-searchbar>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <ion-icon name="scan-circle-outline" style="font-size: 35px;"></ion-icon>
+        <ion-icon name="cart-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
+      </div>
+    </div>
 
-<ion-content [fullscreen]="true">
-<ion-searchbar animated="true" placeholder="Buscar" style="flex-grow: 1;"></ion-searchbar>
-  
     <!-- Tarjeta imagen -->
     <ion-card>
-      <!-- Imagen en la parte superior de la tarjeta -->
       <ion-img src="assets/images/imagen1.png" alt="Imagen de ejemplo"></ion-img>
     </ion-card>
 
@@ -36,18 +42,18 @@
         </div>
       </swiper-slide>
     </swiper-container>
-    
+
     <div class="card-container">
       <ion-card>
-          <ion-img src="assets/images/imagenCard1.png" alt="Imagen de ejemplo"></ion-img>
+        <ion-img src="assets/images/imagenCard1.png" alt="Imagen de ejemplo"></ion-img>
       </ion-card>
-      
       <ion-card>
-          <ion-img src="assets/images/imagenCard2.png" alt="Imagen de ejemplo"></ion-img>
+        <ion-img src="assets/images/imagenCard2.png" alt="Imagen de ejemplo"></ion-img>
       </ion-card>
-      
       <ion-card>
-          <ion-img src="assets/images/imagenCard3.png" alt="Imagen de ejemplo"></ion-img>
+        <ion-img src="assets/images/imagenCard3.png" alt="Imagen de ejemplo"></ion-img>
       </ion-card>
-  </div>
-</ion-content>
+    </div>
+  </ion-content>
+
+  <app-menu-inferior></app-menu-inferior>
