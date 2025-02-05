@@ -8,25 +8,9 @@
   transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
 #container a {
   text-decoration: none;
 }
-
-
 
 swiper-container, swiper-slide {
   width: 100%; 
@@ -50,12 +34,6 @@ swiper-container {
   border-radius: 8px;
 }
 
-/*.cards {
-  border-radius: 0;
-  width: 90%;
-  height: auto;
-  margin: 20px ;
-} */
 
 .card-container {
   display: flex;
@@ -63,6 +41,7 @@ swiper-container {
   align-items: center;     /* Centra las cards verticalmente */
   flex-wrap: wrap;         /* Permite que las cards se envuelvan si no caben en una línea */
   gap: 8px;          /* Espacio entre las cards */
+  margin-bottom: 50px;
   
 }
 
@@ -74,4 +53,37 @@ swiper-container {
 /* Añade un poco más de espacio solo a la primera card */
 .card-container ion-card:first-child {
   margin-top: 20px;        /* Espacio adicional arriba de la primera card */
+}
+
+//Footer
+#footer {
+  position: fixed; /* Fija el footer en la pantalla */
+  bottom: 0;       /* Lo coloca en la parte inferior */
+  left: 0;         /* Alinea a la izquierda */
+  width: 100%;     /* Ocupa el ancho completo de la pantalla */
+  z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+}
+
+//Espacio entre las cards
+.card-container ion-card {
+  margin: 2px; /* Ajusta este valor según el espacio que desees */
+}
+
+.card-container {
+  display: flex;
+  gap: 1px; /* Ajusta este valor según el espacio que desees */
+}
+
+//Cards productos
+
+.custom-col {
+  padding: 0; /* Elimina el padding por defecto de las columnas */
+}
+
+.custom-card {
+  margin: 0; /* Elimina el margen por defecto de las cards */
+}
+
+.custom-card-subtitle {
+  color: black;
 }
