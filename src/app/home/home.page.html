@@ -1,53 +1,63 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
 
-    <ion-title>Inicio</ion-title>
+  <!-- Menú lateral -->
+  <app-menu-lateral></app-menu-lateral>
 
-    <ion-buttons slot="end">
-      <ion-icon name="scan-circle-outline" style="font-size: 35px; margin-right: 10px;"></ion-icon>
-      <ion-icon name="cart-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-
-<ion-content [fullscreen]="true">
-<ion-searchbar animated="true" placeholder="Buscar" style="flex-grow: 1;"></ion-searchbar>
+  <!-- Página de inicio (home) -->
   
-    <!-- Tarjeta imagen -->
-    <ion-card>
-      <!-- Imagen en la parte superior de la tarjeta -->
-      <ion-img src="assets/images/imagen1.png" alt="Imagen de ejemplo"></ion-img>
-    </ion-card>
+    <ion-header [translucent]="true" id="main-content">
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Inicio</ion-title>
+        <ion-buttons slot="end">
+          <ion-icon name="notifications-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-    <!-- Carrusel de imagenes -->
-    <swiper-container speed="500">
-      <swiper-slide>
-        <div class="image-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="Imagen 1" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="Imagen 2" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="Imagen 3" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="Imagen 4" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="Imagen 5" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="Imagen 6" />
+    <ion-content [fullscreen]="true">
+      <div style="display: flex; align-items: center;">
+        <ion-searchbar animated="true" placeholder="Buscar Producto" style="flex-grow: 1;"></ion-searchbar>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <ion-icon name="scan-circle-outline" style="font-size: 35px;"></ion-icon>
+          <ion-icon name="cart-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
         </div>
-      </swiper-slide>
-    </swiper-container>
-    
-    <div class="card-container">
+      </div>
+
+      <!-- Tarjeta imagen -->
       <ion-card>
+        <ion-img src="assets/images/imagen1.png" alt="Imagen de ejemplo"></ion-img>
+      </ion-card>
+
+      <!-- Categorias -->
+      
+      <app-item-chip></app-item-chip>
+
+      <!-- Cards de productos -->
+      <ion-grid>
+        <ion-row>
+          <app-item-product></app-item-product>
+          
+        </ion-row>
+      </ion-grid>
+      
+      <!--Cards de promoción-->
+      <div class="card-container">
+        <ion-card>
           <ion-img src="assets/images/imagenCard1.png" alt="Imagen de ejemplo"></ion-img>
-      </ion-card>
-      
-      <ion-card>
+        </ion-card>
+        <ion-card>
           <ion-img src="assets/images/imagenCard2.png" alt="Imagen de ejemplo"></ion-img>
-      </ion-card>
-      
-      <ion-card>
+        </ion-card>
+        <ion-card>
           <ion-img src="assets/images/imagenCard3.png" alt="Imagen de ejemplo"></ion-img>
-      </ion-card>
-  </div>
-</ion-content>
+        </ion-card>
+      </div>
+
+      <!-- Menú inferior -->
+      <app-menu-inferior id="footer"></app-menu-inferior>
+
+    </ion-content>
+
+
