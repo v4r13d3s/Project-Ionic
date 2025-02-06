@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item-product',
@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemProductComponent implements OnInit {
 
+  @Input() productUrl: string = '';
+  @Input() nombre: string = '';
+  @Input() precio: string = '';
+
+  
+
   // Aquí tienes una lista para simular los productos favoritos
   favorites: any[] = [];
   // Producto que se está mostrando en esta tarjeta
@@ -16,7 +22,13 @@ export class ItemProductComponent implements OnInit {
     price: 23.30
   };
 
-  constructor() { }
+  // Número aleatorio para la calificación con estrellas
+  randomNumber: number;
+
+  constructor() {
+    // Generar un número aleatorio entre 1 y 5
+    this.randomNumber = Math.floor(Math.random() * 5) + 1;
+  }
 
   ngOnInit() {}
 

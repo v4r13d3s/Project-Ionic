@@ -1,14 +1,16 @@
 <ion-col>
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://tonypapelerias.vtexassets.com/arquivos/ids/275111-1200-auto?v=638556519490570000&width=1200&height=auto&aspect=true%201200w%22" />
+  <ion-card style="border-radius: 30px;">
+    <img alt="Producto" [src]="productUrl" />
     <ion-card-header>
-      <ion-card-title>$23.30</ion-card-title>
-      <ion-card-subtitle>Lápiz con Goma Número 2 Hexagonal Blíster con 4 Piezas Mirado</ion-card-subtitle>
+      <!-- Aquí agregamos la estrella y el número aleatorio -->
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+        <span>{{ randomNumber }} estrellas</span>
+      </div>
+      
+      <h3>{{nombre}}</h3>
+      <p>{{precio}}</p>
     </ion-card-header>
-
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
 
     <!-- Icono de corazón para favoritos -->
     <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites()"></ion-icon>

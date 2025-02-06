@@ -9,7 +9,7 @@
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Inicio</ion-title>
+        <ion-title style="font-weight: bold; text-align: center;">Inicio</ion-title>
         <ion-buttons slot="end">
           <ion-icon name="notifications-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
         </ion-buttons>
@@ -18,7 +18,11 @@
 
     <ion-content [fullscreen]="true">
       <div style="display: flex; align-items: center;">
-        <ion-searchbar animated="true" placeholder="Buscar Producto" style="flex-grow: 1;"></ion-searchbar>
+        <ion-searchbar 
+        animated="true" 
+        placeholder="Buscar Producto" 
+        style="flex-grow: 1; --border-radius: 20px;">
+        </ion-searchbar>
         <div style="display: flex; align-items: center; gap: 10px;">
           <ion-icon name="scan-circle-outline" style="font-size: 35px;"></ion-icon>
           <ion-icon name="cart-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
@@ -37,8 +41,14 @@
       <!-- Cards de productos -->
       <ion-grid>
         <ion-row>
-          <app-item-product></app-item-product>
-          
+          <ion-list>
+            <app-item-product
+            *ngFor="let product of products"
+            [productUrl]="product.productUrl"
+            [nombre]="product.nombre"
+            [precio]="product.precio"
+            ></app-item-product>
+          </ion-list>
         </ion-row>
       </ion-grid>
       
