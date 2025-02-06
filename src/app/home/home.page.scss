@@ -64,7 +64,10 @@ swiper-container {
   z-index: 1000;   /* Asegura que esté por encima de otros elementos */
 }
 
-//Espacio entre las cards
+
+
+
+//Espacio entre las cards de promociones
 .card-container ion-card {
   margin: 2px; /* Ajusta este valor según el espacio que desees */
 }
@@ -72,18 +75,4 @@ swiper-container {
 .card-container {
   display: flex;
   gap: 1px; /* Ajusta este valor según el espacio que desees */
-}
-
-//Cards productos
-
-.custom-col {
-  padding: 0; /* Elimina el padding por defecto de las columnas */
-}
-
-.custom-card {
-  margin: 0; /* Elimina el margen por defecto de las cards */
-}
-
-.custom-card-subtitle {
-  color: black;
 }

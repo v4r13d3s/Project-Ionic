@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MenuInferiorComponent } from './menu-inferior/menu-inferior.component';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { ItemProductComponent } from './item-product/item-product.component';
+import { ItemChipComponent } from './item-chip/item-chip.component';
 import { IonicModule } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -10,7 +11,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   declarations: [
     MenuInferiorComponent,
     MenuLateralComponent,
-    ItemProductComponent
+    ItemProductComponent,
+    ItemChipComponent
   ],
   imports: [
     IonicModule,
@@ -19,7 +21,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   exports: [
     MenuInferiorComponent,
     MenuLateralComponent,
-    ItemProductComponent
+    ItemProductComponent,
+    ItemChipComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
 })
