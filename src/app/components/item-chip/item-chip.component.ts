@@ -10,8 +10,8 @@ export class ItemChipComponent  implements OnInit {
 
   @Input() chipUrl: string = '';
   @Input() categoria: string = '';
-  @Input() chipColor: string = '#f1ccc3'; // Color por defecto
-  @Input() textColor: string = '#ffffff'; // Color del texto por defecto
+  @Input() chipColor: string = ''; 
+  @Input() textColor: string = ''; 
 
   constructor() { }
 

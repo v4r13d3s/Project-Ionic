@@ -30,7 +30,7 @@
       </div>
 
       <!-- Tarjeta imagen -->
-      <ion-card>
+      <ion-card style="border-radius: 20px;">
         <ion-img src="assets/images/imagen1.png" alt="Imagen de ejemplo"></ion-img>
       </ion-card>
 
@@ -42,8 +42,11 @@
             <app-item-chip
               *ngFor="let chip of chips"
               [chipUrl]="chip.chipUrl"
-              [categoria]="chip.categoria">
+              [categoria]="chip.categoria"
+              [chipColor]="chip.color"
+              [textColor]="chip.textColor">
             </app-item-chip>
+
           </ion-scroll>
         </div>
       </ion-item>

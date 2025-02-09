@@ -1,6 +1,7 @@
 <ion-chip [style.background-color]="chipColor" [style.color]="textColor">
-  <ion-avatar style="width: 30px; height: auto;">
-    <img alt="" [src]="chipUrl"/>
+  <ion-avatar>
+    <img alt="" [src]="chipUrl" style="border-radius: 0px;">
   </ion-avatar>
-  <ion-label [style.color]="textColor" style="font-weight: bold; font-family: sans-serif;">{{categoria}}</ion-label>
+  
 </ion-chip>
+<ion-label [style.color]="textColor" style="font-weight: bold; font-family: sans-serif; text-align: center; align-items: center; margin-top: 10px;">{{categoria}}</ion-label>
