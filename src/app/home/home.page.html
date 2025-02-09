@@ -36,7 +36,17 @@
 
       <!-- Categorias -->
       
-      <app-item-chip></app-item-chip>
+      <ion-item>
+        <div class="chip-container">
+          <ion-scroll scrollX="true" class="chip-scroll">
+            <app-item-chip
+              *ngFor="let chip of chips"
+              [chipUrl]="chip.chipUrl"
+              [categoria]="chip.categoria">
+            </app-item-chip>
+          </ion-scroll>
+        </div>
+      </ion-item>
 
       <!-- Cards de productos -->
       <ion-grid>

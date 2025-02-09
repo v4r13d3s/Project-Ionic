@@ -1,7 +1,6 @@
-<ion-chip>
-  <ion-avatar>
-    <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+<ion-chip [style.background-color]="chipColor" [style.color]="textColor">
+  <ion-avatar style="width: 30px; height: auto;">
+    <img alt="" [src]="chipUrl"/>
   </ion-avatar>
-  <ion-label>Avatar Chip</ion-label>
-  <ion-icon name="close-circle"></ion-icon>
+  <ion-label [style.color]="textColor" style="font-weight: bold; font-family: sans-serif;">{{categoria}}</ion-label>
 </ion-chip>

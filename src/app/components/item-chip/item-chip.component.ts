@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item-chip',
@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class ItemChipComponent  implements OnInit {
+
+  @Input() chipUrl: string = '';
+  @Input() categoria: string = '';
+  @Input() chipColor: string = '#f1ccc3'; // Color por defecto
+  @Input() textColor: string = '#ffffff'; // Color del texto por defecto
 
   constructor() { }
 

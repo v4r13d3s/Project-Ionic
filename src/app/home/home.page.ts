@@ -51,6 +51,77 @@ export class HomePage {
     }
   ]
 
+  chips: any[] = [
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/5832/5832773.png",
+      categoria: "Papel",
+      color: "#ffcccb",  // Color de fondo
+      textColor: "#000000" // Color del texto
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/1546/1546945.png",
+      categoria: "Escolares",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/3683/3683305.png",
+      categoria: "Cuadernos",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/12695/12695315.png",
+      categoria: "Escritura",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/1142/1142618.png",
+      categoria: "Oficina",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/2970/2970785.png",
+      categoria: "Arte",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/1339/1339350.png",
+      categoria: "Impresión",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/3813/3813693.png",
+      categoria: "Manualidad",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/479/479063.png",
+      categoria: "Accesorios",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/7813/7813840.png",
+      categoria: "Regalos",
+      color: "#add8e6",
+      textColor: "#000000"
+    },
+    {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/716/716784.png",
+      categoria: "Archivo",
+      color: "#add8e6",
+      textColor: "#000000"
+    }
+  ]
+
+
+  
 
   constructor() {}
 
