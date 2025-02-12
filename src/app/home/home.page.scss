@@ -93,3 +93,31 @@ swiper-container {
 }
 
 
+
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 10px; /* Espacio entre las cards */
+  padding: 10px;
+}
+
+app-item-product {
+  flex: 1 1 calc(50% - 10px); /* 📌 Dos cards por fila */
+  max-width: 180px; 
+}
+
+/* 📱 Ajuste para celulares pequeños (<400px) */
+@media (max-width: 400px) {
+  app-item-product {
+    max-width: 150px; 
+  }
+}
+
+/* 📱 Ajuste para celulares grandes (>400px) */
+@media (min-width: 401px) {
+  app-item-product {
+    max-width: 190px;
+  }
+}

@@ -50,20 +50,18 @@
           </ion-scroll>
         </div>
       </ion-item>
+      
 
       <!-- Cards de productos -->
-      <ion-grid>
-        <ion-row>
-          <ion-list>
-            <app-item-product
-            *ngFor="let product of products"
-            [productUrl]="product.productUrl"
-            [nombre]="product.nombre"
-            [precio]="product.precio"
-            ></app-item-product>
-          </ion-list>
-        </ion-row>
-      </ion-grid>
+      <div class="product-container">
+        <app-item-product
+          *ngFor="let product of products"
+          [productUrl]="product.productUrl"
+          [nombre]="product.nombre"
+          [precio]="product.precio">
+        </app-item-product>
+      </div>
+      
       
       <!--Cards de promoción-->
       <div class="card-container">

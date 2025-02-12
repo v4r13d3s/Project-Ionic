@@ -6,13 +6,15 @@ import { ItemProductComponent } from './item-product/item-product.component';
 import { ItemChipComponent } from './item-chip/item-chip.component';
 import { IonicModule } from '@ionic/angular';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ItemChipProductComponent } from './item-chip-product/item-chip-product.component';
 
 @NgModule({
   declarations: [
     MenuInferiorComponent,
     MenuLateralComponent,
     ItemProductComponent,
-    ItemChipComponent
+    ItemChipComponent,
+    ItemChipProductComponent
   ],
   imports: [
     IonicModule,
@@ -22,7 +24,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MenuInferiorComponent,
     MenuLateralComponent,
     ItemProductComponent,
-    ItemChipComponent
+    ItemChipComponent,
+    ItemChipProductComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
 })
