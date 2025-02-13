@@ -12,17 +12,20 @@ export class ItemProductComponent implements OnInit {
   @Input() productUrl: string = '';
   @Input() nombre: string = '';
   @Input() precio: string = '';
+  @Input() category: string = ''; 
+  @Input() description: string = ''; 
+  @Input() favorite: boolean = false; 
 
-  // Número aleatorio para la calificación con estrellas
+  // Lista para simular productos favoritos
+  favorites: any[] = [];
+  
   randomNumber: number;
 
   constructor(private router: Router) {
-    // Generar un número aleatorio entre 1 y 5
     this.randomNumber = Math.floor(Math.random() * 5) + 1;
   }
 
   ngOnInit() {}
-
   // Navegar a la página de detalles con los datos del producto
   navigateToDetail(nombre: string, precio: string, productUrl: string) {
     this.router.navigate(['product-detail'], {
@@ -30,12 +33,27 @@ export class ItemProductComponent implements OnInit {
     });
   }
 
-  //Estado del icon favorite
-  isFavorite: boolean = false; // Estado inicial: no marcado como favorito
+  // Función para agregar un producto a favoritos
+  addToFavorites() {
+    const index = this.favorites.findIndex(fav => fav.name === this.nombre);
+    if (index !== -1) {
+      this.favorites.splice(index, 1); 
+    } else {
+      this.favorites.push({ name: this.nombre, imageUrl: this.productUrl, price: this.precio });
+    }
+    console.log(this.favorites);
+  }
 
-   // Cambia el estado del ícono al hacer clic
-   toggleFavorite(event: Event): void {
-    event.stopPropagation(); // Evita que el clic también active el evento de la card
-    this.isFavorite = !this.isFavorite; // Cambia entre true y false
+  // Métodos para manejar la cantidad de productos
+  increaseQuantity(item: any) {
+    item.quantity++;
+    item.totalPrice = item.quantity * item.price;  
+  }
+
+  decreaseQuantity(item: any) {
+    if (item.quantity > 1) {
+      item.quantity--;
+      item.totalPrice = item.quantity * item.price;
+    }
   }
 }

@@ -1,10 +1,58 @@
 
   <!-- Menú lateral -->
-  <app-menu-lateral></app-menu-lateral>
+  <ion-menu contentId="main-content-home">
+    <ion-header>
+      
+      <ion-toolbar color="primary">
+        <div style="display: flex; justify-content: center; padding: 10px;">
+          <ion-img 
+            src="assets/images/LogoMariaStore.svg" 
+            style="width: 100px; height: auto; border-radius: 50%;">
+          </ion-img>
+        </div>
+        <ion-buttons slot="start" color="primary-contrast" routerLink="/notificaciones">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-item routerLink="/home">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-item>
+        <ion-item routerLink="/pedidos">
+          <ion-icon name="cart-outline" slot="start"></ion-icon>  
+          <ion-label>Pedidos</ion-label>
+        </ion-item>
+        <ion-item routerLink="/perfil">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-label>Perfil</ion-label>
+        </ion-item>
+        <ion-item routerLink="/favoritos">
+          <ion-icon name="heart-outline" slot="start"></ion-icon>
+          <ion-label>Favoritos</ion-label>
+        </ion-item>
+        <ion-item routerLink="/categorias">
+          <ion-icon name="apps-outline" slot="start"></ion-icon>
+          <ion-label>Categorias</ion-label>
+        </ion-item>
+        <ion-item routerLink="/notificaciones">
+          <ion-icon name="notifications-outline" slot="start"></ion-icon>
+          <ion-label>Notificaciones</ion-label>
+        </ion-item>
+        <ion-item routerLink="/configuracion">
+          <ion-icon name="settings-outline" slot="start"></ion-icon>
+          <ion-label>Configuración</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
 
   <!-- Página de inicio (home) -->
   
-    <ion-header [translucent]="true" id="main-content">
+    <ion-header [translucent]="true" id="main-content-home">
       <ion-toolbar color="primary">
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
@@ -25,7 +73,7 @@
         </ion-searchbar>
         <div style="display: flex; align-items: center; gap: 10px;">
           <ion-icon name="scan-circle-outline" style="font-size: 35px;"></ion-icon>
-          <ion-icon name="cart-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
+          <ion-icon name="cart-outline" style="font-size: 35px; padding-right: 15px;" routerLink="/carrito"></ion-icon>
         </div>
       </div>
 
@@ -51,6 +99,7 @@
         </div>
       </ion-item>
       
+      <h3 style="text-align: center; font-family: sans-serif; font-size: 25px; margin-top: 30px; font-weight: bold;">Productos</h3>
 
       <!-- Cards de productos -->
       <div class="product-container">
@@ -59,6 +108,7 @@
           [productUrl]="product.productUrl"
           [nombre]="product.nombre"
           [precio]="product.precio"
+          [category]="product.categoria"
           (click)="navigateToDetail(product)">
         </app-item-product>
       </div>
@@ -78,7 +128,27 @@
       </div>
 
       <!-- Menú inferior -->
-      <app-menu-inferior id="footer"></app-menu-inferior>
+      <div id="footer" style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000;">
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="home" routerLink="/home">
+            <ion-icon name="home-outline"></ion-icon>
+            <ion-label>Inicio</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="categorias" routerLink="/categorias">
+            <ion-icon name="duplicate-outline"></ion-icon>
+            <ion-label>Categorias</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="favoritos" routerLink="/favoritos">
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-label>Favoritos</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="perfil" routerLink="/perfil">
+            <ion-icon name="person-outline"></ion-icon>
+            <ion-label>Perfil</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      
+      </div>
 
     </ion-content>
 

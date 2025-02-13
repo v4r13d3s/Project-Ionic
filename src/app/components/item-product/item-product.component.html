@@ -9,12 +9,9 @@
 
     <h3>{{ nombre }}</h3>
     <p>{{ precio }}</p>
+    <p class="category">Categoría: {{ category }}</p>
+    <p class="description">{{ description }}</p>
   </ion-card-header>
 
-  <!-- Ícono de favorito con estado dinámico -->
-  <ion-icon 
-    [name]="isFavorite ? 'heart' : 'heart-outline'" 
-    class="favorite-icon" 
-    (click)="toggleFavorite($event)">
-  </ion-icon>
+  <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites(); $event.stopPropagation();"></ion-icon>
 </ion-card>
