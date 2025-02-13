@@ -1,0 +1,77 @@
+/* 📌 Imagen dentro de la Card */
+img {
+    width: 100%;
+    height: auto; /* 📌 Tamaño fijo */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+/* 📌 Contenedor del Header */
+header {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 40px;
+
+  ion-icon {
+    color: gold;
+    margin-right: 4px;
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 16px;
+    color: #000000;
+    font-family: sans-serif;
+    margin-bottom: 0px;
+    margin-left: 2px;
+  }
+}
+
+.price-container {
+    display: flex;
+    justify-content: space-between; /* Separa el precio y el corazón */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 10px;
+
+/* 📌 Texto con puntos suspensivos si es muy largo */
+h3 {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  p {
+    color: #091ce5;
+    font-family: sans-serif;
+    font-size: 22px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  .favorite-icon {
+    font-size: 22px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  &:hover {
+    color: #ff4081; /* Cambia a un color rosado al pasar el mouse */
+  }
+}
+
+  

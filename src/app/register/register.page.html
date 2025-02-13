@@ -1,44 +1,84 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button default-href="/login"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Registro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen>
+  <div class="background-overlay">
+    <div class="form-container">
+      <p class="title">Registrarse</p>
+      <form class="register-form" (ngSubmit)="onRegister()">
+        
+        <ion-item [class.error]="nameInvalid && nameTouched">
+          <ion-icon name="person-outline" size="large" slot="start"></ion-icon>
+          <ion-label position="floating">Nombre completo</ion-label>
+          <ion-input 
+            type="text" 
+            [(ngModel)]="name" 
+            name="name" 
+            required
+            (blur)="onFieldBlur('name')" 
+            (input)="onFieldInput('name')" 
+            #nameInput="ngModel">
+          </ion-input>
+        </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <!-- Correo electrónico -->
+        <ion-item [class.error]="emailInvalid && emailTouched">
+          <ion-icon name="mail-outline" slot="start" size="large"></ion-icon>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input 
+            type="email" 
+            [(ngModel)]="email" 
+            name="email" 
+            required
+            (blur)="onFieldBlur('email')" 
+            (input)="onFieldInput('email')" 
+            #emailInput="ngModel">
+          </ion-input>
+        </ion-item>
+        
+        <!-- Contraseña -->
+        <ion-item [class.error]="passwordInvalid && passwordTouched">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-icon slot="start" size="large"
+            class="show-password" 
+            name="{{passwordVisible ? 'lock-open-outline' : 'lock-closed-outline'}}" 
+            (click)="togglePasswordVisibility()">
+          </ion-icon>
+          <ion-input 
+          [(ngModel)]="password" 
+            name="password" 
+            [type]="passwordVisible ? 'text' : 'password'" 
+            required
+            (blur)="onFieldBlur('password')" 
+            (input)="onFieldInput('password')" 
+            #passwordInput="ngModel">
+          </ion-input>
+        </ion-item>
+        
+        <!-- Confirmar Contraseña -->
+        <ion-item [class.error]="confirmPasswordInvalid && confirmPasswordTouched">
+          <ion-label position="floating">Confirmar contraseña</ion-label>
+          <ion-icon slot="start" size="large"
+            class="show-password" 
+            name="{{confirmPasswordVisible ? 'lock-open-outline' : 'lock-closed-outline'}}" 
+            (click)="toggleConfirmPasswordVisibility()">
+          </ion-icon>
+          <ion-input 
+            [(ngModel)]="confirmPassword" 
+            name="confirmPassword" 
+            [type]="confirmPasswordVisible ? 'text' : 'password'" 
+            required
+            (blur)="onFieldBlur('confirmPassword')" 
+            (input)="onFieldInput('confirmPassword')" 
+            #confirmPasswordInput="ngModel">
+          </ion-input>
+        </ion-item>
 
-  <h2>Ingresa los siguientes datos: </h2>
-  <div style="display: flex; justify-content: center; flex-direction: column;">
-  <ion-item>
-    <ion-input label="Nombre" labelPlacement="floating" placeholder="Ingresa tu nombre"></ion-input>
-  </ion-item>
+        <ion-button expand="full" type="submit" routerLink="/login"  class="register-button" [disabled]="!name || !email || !password || !confirmPassword || emailInvalid || passwordInvalid || confirmPasswordInvalid">
+          Registrarse
+        </ion-button>
+      </form>
 
-  <ion-item>
-    <ion-input label="Apellidos" labelPlacement="floating" placeholder="Ingresa tus apellidos"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input label="Ingresa tu ciudad" labelPlacement="floating" placeholder="Ciudad"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input label="Correo electronico" labelPlacement="floating" placeholder="Ingresa tu correo"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-input label="Contraseña" labelPlacement="floating" placeholder="Contraseña" required></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-input label="Confirma tu contraseña" labelPlacement="floating" placeholder="Confirma contraseña" required></ion-input>
-  </ion-item>
-</div>
-  
+      <p class="login-link">
+        ¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión</a>
+      </p>
+    </div>
+  </div>
 </ion-content>

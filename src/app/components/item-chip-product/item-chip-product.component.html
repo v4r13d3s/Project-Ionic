@@ -1,0 +1,14 @@
+<ion-card style="border-radius: 30px;">
+  <img alt="Producto" [src]="productImgUrl"/>
+  <ion-card-header>
+    <!-- Aquí agregamos la estrella y el número aleatorio -->
+    <div class="rating">
+      <ion-icon name="star"></ion-icon>
+      <span>{{ randomNumber }}</span>
+    </div>
+
+    <h3>{{nombreCard}}</h3>
+    <p>{{precioCard}}</p>
+  </ion-card-header>
+
+</ion-card>

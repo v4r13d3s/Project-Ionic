@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-product',
@@ -8,27 +9,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemProductComponent implements OnInit {
 
-  // Aquí tienes una lista para simular los productos favoritos
-  favorites: any[] = [];
-  // Producto que se está mostrando en esta tarjeta
-  product = {
-    name: 'Lápiz con Goma',
-    price: 23.30
-  };
+  @Input() productUrl: string = '';
+  @Input() nombre: string = '';
+  @Input() precio: string = '';
+  @Input() category: string = ''; 
+  @Input() description: string = ''; 
+  @Input() favorite: boolean = false; 
 
-  constructor() { }
+  // Lista para simular productos favoritos
+  favorites: any[] = [];
+  
+  randomNumber: number;
+
+  constructor(private router: Router) {
+    this.randomNumber = Math.floor(Math.random() * 5) + 1;
+  }
 
   ngOnInit() {}
+  // Navegar a la página de detalles con los datos del producto
+  navigateToDetail(nombre: string, precio: string, productUrl: string) {
+    this.router.navigate(['product-detail'], {
+      queryParams: { nombre, precio, productUrl }
+    });
+  }
 
   // Función para agregar un producto a favoritos
   addToFavorites() {
-    // Si el producto ya está en favoritos, lo eliminamos
-    const index = this.favorites.findIndex(fav => fav.name === this.product.name);
+    const index = this.favorites.findIndex(fav => fav.name === this.nombre);
     if (index !== -1) {
-      this.favorites.splice(index, 1); // Eliminar de favoritos
+      this.favorites.splice(index, 1); 
     } else {
-      this.favorites.push(this.product); // Agregar a favoritos
+      this.favorites.push({ name: this.nombre, imageUrl: this.productUrl, price: this.precio });
     }
     console.log(this.favorites);
+  }
+
+  // Métodos para manejar la cantidad de productos
+  increaseQuantity(item: any) {
+    item.quantity++;
+    item.totalPrice = item.quantity * item.price;  
+  }
+
+  decreaseQuantity(item: any) {
+    if (item.quantity > 1) {
+      item.quantity--;
+      item.totalPrice = item.quantity * item.price;
+    }
   }
 }

@@ -1,16 +1,17 @@
-<ion-col>
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://tonypapelerias.vtexassets.com/arquivos/ids/275111-1200-auto?v=638556519490570000&width=1200&height=auto&aspect=true%201200w%22" />
-    <ion-card-header>
-      <ion-card-title>$23.30</ion-card-title>
-      <ion-card-subtitle>Lápiz con Goma Número 2 Hexagonal Blíster con 4 Piezas Mirado</ion-card-subtitle>
-    </ion-card-header>
+<ion-card style="border-radius: 30px; position: relative;" (click)="navigateToDetail(nombre, precio, productUrl)">
+  <ion-icon name="cart" class="cart-icon"></ion-icon>
+  <img alt="Producto" [src]="productUrl" />
+  <ion-card-header>
+    <div class="rating">
+      <ion-icon name="star"></ion-icon>
+      <span>{{ randomNumber }}</span>
+    </div>
 
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
+    <h3>{{ nombre }}</h3>
+    <p>{{ precio }}</p>
+    <p class="category">Categoría: {{ category }}</p>
+    <p class="description">{{ description }}</p>
+  </ion-card-header>
 
-    <!-- Icono de corazón para favoritos -->
-    <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites()"></ion-icon>
-  </ion-card>
-</ion-col>
+  <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites(); $event.stopPropagation();"></ion-icon>
+</ion-card>
