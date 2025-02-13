@@ -58,7 +58,8 @@
           *ngFor="let product of products"
           [productUrl]="product.productUrl"
           [nombre]="product.nombre"
-          [precio]="product.precio">
+          [precio]="product.precio"
+          (click)="navigateToDetail(product)">
         </app-item-product>
       </div>
       

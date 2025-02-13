@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-product',
@@ -12,35 +13,29 @@ export class ItemProductComponent implements OnInit {
   @Input() nombre: string = '';
   @Input() precio: string = '';
 
-  
-
-  // Aquí tienes una lista para simular los productos favoritos
-  favorites: any[] = [];
-  // Producto que se está mostrando en esta tarjeta
-  product = {
-    name: 'Lápiz con Goma',
-    price: 23.30
-  };
-
   // Número aleatorio para la calificación con estrellas
   randomNumber: number;
 
-  constructor() {
+  constructor(private router: Router) {
     // Generar un número aleatorio entre 1 y 5
     this.randomNumber = Math.floor(Math.random() * 5) + 1;
   }
 
   ngOnInit() {}
 
-  // Función para agregar un producto a favoritos
-  addToFavorites() {
-    // Si el producto ya está en favoritos, lo eliminamos
-    const index = this.favorites.findIndex(fav => fav.name === this.product.name);
-    if (index !== -1) {
-      this.favorites.splice(index, 1); // Eliminar de favoritos
-    } else {
-      this.favorites.push(this.product); // Agregar a favoritos
-    }
-    console.log(this.favorites);
+  // Navegar a la página de detalles con los datos del producto
+  navigateToDetail(nombre: string, precio: string, productUrl: string) {
+    this.router.navigate(['product-detail'], {
+      queryParams: { nombre, precio, productUrl }
+    });
+  }
+
+  //Estado del icon favorite
+  isFavorite: boolean = false; // Estado inicial: no marcado como favorito
+
+   // Cambia el estado del ícono al hacer clic
+   toggleFavorite(event: Event): void {
+    event.stopPropagation(); // Evita que el clic también active el evento de la card
+    this.isFavorite = !this.isFavorite; // Cambia entre true y false
   }
 }

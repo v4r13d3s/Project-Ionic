@@ -1,0 +1,232 @@
+/* Fondo animado con gradiente y movimiento fluido */
+@keyframes gradientWaves {
+  0% {
+    background-position: 0% 50%;
+  }
+  25%{
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;  
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.background-overlay {
+  background: linear-gradient(45deg, #a7c7e7, #ffebf0, #c2e9fb, #a7c7e7);
+  background-size: 300% 300%;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: gradientWaves 10s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 80px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeInForm 1s ease-in-out forwards;
+}
+
+@keyframes fadeInForm {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Título del formulario */
+.title {
+  font-size: 38px;
+  font-weight: 700;
+  text-align: center;
+  color: black;
+  animation: fadeIn 1.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Estilos de los inputs */
+ion-item {
+  --background: #f9f9f9;
+  --box-shadow: none;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+ion-item:hover {
+  transform: scale(1.02);
+}
+
+ion-input {
+  color: black;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInInput 1s ease-in-out forwards;
+}
+
+@keyframes fadeInInput {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón de login */
+.login-button {
+  background-color: #6596ff69;
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 15px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInButton 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeInButton {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.login-button:hover {
+  background-color: #ff43d354;
+  transform: translateY(-3px);
+}
+
+/* Estilos para el botón de Google */
+.google-login-button {
+  background-color: #6596ff69;
+  color: black;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInGoogleButton 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeInGoogleButton {
+  0% { opacity: 0; transform: translateY(10px); }
+  50% { opacity: 0.5; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.google-login-button:hover {
+  background-color: #ff43d354;
+}
+
+/* Estilos de error */
+ion-item.error {
+  --background: #ffebeb;
+  border: 2px solid #ff6b6b;
+}
+
+ion-item.error ion-label {
+  color: #ff6b6b;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+
+ion-input:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+  border-color: #007bff;
+}
+
+ion-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: #555;
+    transition: color 0.3s ease;
+  }
+  
+  ion-icon:hover {
+    color: #ff43d354;
+  }
+    
+.register-link {
+    text-align: center;
+    font-size: 14px;
+    color: #007bff;
+    margin-top: 20px;
+  }
+  
+  .login-link a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .login-link a:hover {
+    color: #0056b3;
+  }
+  
+  .register-button {
+    background-color: #6596ff69;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+  }
+  
+  .register-button:hover {
+    background-color: #ff43d354;
+    transform: translateY(-3px);
+  }
+  
+  .register-button:active {
+    background-color: #ff22c82e;
+    transform: translateY(0);
+  }

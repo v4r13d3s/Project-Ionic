@@ -2,11 +2,16 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  color: #ff0000;
+  color: #ff0000; /* Color inicial gris */
   cursor: pointer;
-  font-size: 6vw;  /* 📌 Tamaño relativo a la pantalla */
-  max-font-size: 40px; /* 📌 Tamaño máximo */
-  min-font-size: 24px; /* 📌 Tamaño mínimo */
+  font-size: 6vw; /* Tamaño relativo a la pantalla */
+  max-font-size: 40px; /* Tamaño máximo */
+  min-font-size: 24px; /* Tamaño mínimo */
+  transition: color 0.3s; /* Transición suave al cambiar el color */
+
+  &.active {
+    color: #ff0000; /* Cambia a rojo cuando es favorito */
+  }
 }
 
 /* Ajuste para pantallas grandes */
@@ -91,4 +96,18 @@ p {
   margin-top: 2px;
   margin-bottom: 4px;
   font-weight: bold;
+}
+
+
+.cart-icon {
+  position: absolute;
+  top: 10px; /* Ajusta la distancia desde la parte superior */
+  left: 10px; /* Ajusta la distancia desde la izquierda */
+  font-size: 20px; /* Tamaño del ícono */
+  color: #4caf50; /* Color del ícono, ajusta según tus preferencias */
+  background-color: #ffffff; /* Fondo blanco para mayor visibilidad */
+  border-radius: 50%; /* Hacer el fondo circular */
+  padding: 5px; /* Espaciado interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto elevado */
+  z-index: 1; /* Asegura que el ícono esté sobre el resto de los elementos */
 }

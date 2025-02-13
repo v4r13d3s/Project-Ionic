@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -121,8 +122,13 @@ export class HomePage {
   ]
 
   
-  
 
-  constructor() {}
 
+  constructor(private navCtrl: NavController) {}
+
+  navigateToDetail(product: any) {
+    this.navCtrl.navigateForward('/product-detail', {
+      queryParams: product, // Pasa los datos del producto como query params
+    });
+  }
 }

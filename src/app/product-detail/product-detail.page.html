@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/home">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Detalles del producto</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="notifications-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img [src]="productUrl" alt="Producto" />
+  <ion-card-header>
+    <div class="rating">
+      <ion-icon name="star"></ion-icon>
+      <span>{{ randomNumber }}</span>
+    </div>
+    <div class="price-container">
+      <p>{{ precio }}</p>
+      <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+    </div>
+    <h2>{{ nombre }}</h2>
+  </ion-card-header>
+</ion-content>
+

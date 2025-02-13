@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { Component } from "@angular/core";
+import { AlertController, NavController } from "@ionic/angular";
 
 @Component({
   selector: 'app-login',
@@ -8,41 +7,94 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
   standalone: false,
 })
-export class LoginPage implements OnInit {
 
-  email: String = '';
-  password: String = '';
+export class LoginPage {
+  email: string = '';
+  password: string = '';
+  emailInvalid: boolean = false;
+  passwordInvalid: boolean = false;
+  passwordVisible: boolean = false;
+  isLoading: boolean = false;
 
-  constructor(
-    private navController: NavController,
-  ) { }
+  emailTouched: boolean = false;
+  passwordTouched: boolean = false;
 
-  ngOnInit() {
+  constructor(private alertCtrl: AlertController, private navCtrl: NavController) {}
+
+  validateFields() {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    this.emailInvalid = !emailPattern.test(this.email);
+    this.passwordInvalid = this.password.length < 6;
   }
 
-  login(form: NgForm){
-    console.log('email: ', this.email);
-    console.log('Contraseña: ', this.password);
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible; 
+  }
 
-    console.log(form.value);
-
-    console.log('valid: ', form.valid);
-
-    if(!form.valid){
-      console.log('Todos los campos son requeridos');
-      return; //Detiene la ejecución de la función login si el formulario no es válido
+  onFieldBlur(field: string) {
+    if (field === 'email') {
+      this.emailTouched = true;
     }
+    if (field === 'password') {
+      this.passwordTouched = true;
+    }
+    this.validateFields();
+  }
 
-    console.log('Formulario válido, procesando...'); //Continua con la ejecución del formulario
-    //Aqui se procesan los datos del formulario
+  async onLogin() {
+    if (this.isLoading) return;
+    this.isLoading = true;
+  
+    this.validateFields();
+  
+    if (this.emailInvalid || this.passwordInvalid) {
+      const form = document.querySelector('.form-container');
+      form?.classList.add('shake');
+  
+      setTimeout(() => form?.classList.remove('shake'), 300);
+  
+      const alert = await this.alertCtrl.create({
+        header: 'Error',
+        message: 'Por favor, revisa los campos.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+  
+      this.isLoading = false;
+      return;
+    }
+  
+    // Simulación de inicio de sesión exitoso
+    setTimeout(async () => {
+      const alert = await this.alertCtrl.create({
+        header: 'Bienvenido',
+        message: 'Has iniciado sesión correctamente.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+  
+      this.navCtrl.navigateForward('/home');
+      this.isLoading = false;
+    },
+    1000); 
+    if (this.email === 'emma@prueba.com' && this.password === '123456') {
+      const alert = await this.alertCtrl.create({
+        header: 'Bienvenido',
+        message: 'Has iniciado sesión correctamente.',
+        buttons: ['OK'],
+      });
+      await alert.present();
 
-    if(this.email == 'Admin' && this.password == 'Admin'){
-      this.navController.navigateForward('/home');
-      console.log('El correo y la contraseña son correctos');
+      this.navCtrl.navigateForward('/home');
     } else {
-      console.log('El correo y la contraseña son incorrectos');
+      const alert = await this.alertCtrl.create({
+        header: 'Error',
+        message: 'Credenciales incorrectas.',
+        buttons: ['OK'],
+      });
+      await alert.present();
     }
 
+    this.isLoading = false;
   }
-
 }

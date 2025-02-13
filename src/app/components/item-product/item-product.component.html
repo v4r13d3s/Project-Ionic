@@ -1,16 +1,20 @@
-<ion-card style="border-radius: 30px;">
-  <img alt="Producto" [src]="productUrl"/>
+<ion-card style="border-radius: 30px; position: relative;" (click)="navigateToDetail(nombre, precio, productUrl)">
+  <ion-icon name="cart" class="cart-icon"></ion-icon>
+  <img alt="Producto" [src]="productUrl" />
   <ion-card-header>
-    <!-- Aquí agregamos la estrella y el número aleatorio -->
     <div class="rating">
       <ion-icon name="star"></ion-icon>
       <span>{{ randomNumber }}</span>
     </div>
 
-    <h3>{{nombre}}</h3>
-    <p>{{precio}}</p>
+    <h3>{{ nombre }}</h3>
+    <p>{{ precio }}</p>
   </ion-card-header>
 
-  <!-- Icono de corazón para favoritos -->
-  <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites()"></ion-icon>
+  <!-- Ícono de favorito con estado dinámico -->
+  <ion-icon 
+    [name]="isFavorite ? 'heart' : 'heart-outline'" 
+    class="favorite-icon" 
+    (click)="toggleFavorite($event)">
+  </ion-icon>
 </ion-card>
