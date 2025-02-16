@@ -22,46 +22,45 @@ swiper-container {
 }
 
 .image-container {
-  display: flex; /* Organiza las imágenes horizontalmente */
-  gap: 8px; /* Espacio entre las imágenes */
-  overflow-x: auto; /* Permite el desplazamiento horizontal */
-  padding: 8px; /* Espacio interno */
+  display: flex; 
+  gap: 8px; 
+  overflow-x: auto;
+  padding: 8px; 
 }
 
 .image-container img {
-  width: 100px; /* Ancho de cada imagen */
-  height: auto; /* Mantiene la proporción */
+  width: 100px; 
+  height: auto; 
   border-radius: 8px;
 }
 
 
 .card-container {
   display: flex;
-  justify-content: center; /* Centra las cards horizontalmente */
-  align-items: center;     /* Centra las cards verticalmente */
-  flex-wrap: wrap;         /* Permite que las cards se envuelvan si no caben en una línea */
-  gap: 8px;          /* Espacio entre las cards */
+  justify-content: center;
+  align-items: center; 
+  flex-wrap: wrap;    
+  gap: 8px;          
   margin-bottom: 50px;
   
 }
 
 .card-container ion-card {
-  flex: 1 1 300px;         /* Flex-grow, flex-shrink, y flex-basis */
-  max-width: 300px;        /* Ancho máximo de cada card */
+  flex: 1 1 300px;        
+  max-width: 300px;       
 }
 
-/* Añade un poco más de espacio solo a la primera card */
 .card-container ion-card:first-child {
-  margin-top: 20px;        /* Espacio adicional arriba de la primera card */
+  margin-top: 20px;
 }
 
 //Footer
 #footer {
-  position: fixed; /* Fija el footer en la pantalla */
-  bottom: 0;       /* Lo coloca en la parte inferior */
-  left: 0;         /* Alinea a la izquierda */
-  width: 100%;     /* Ocupa el ancho completo de la pantalla */
-  z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+  position: fixed; 
+  bottom: 0;       
+  left: 0;         
+  width: 100%;     
+  z-index: 1000;   
 }
 
 
@@ -69,12 +68,12 @@ swiper-container {
 
 //Espacio entre las cards de promociones
 .card-container ion-card {
-  margin: 2px; /* Ajusta este valor según el espacio que desees */
+  margin: 2px; 
 }
 
 .card-container {
   display: flex;
-  gap: 1px; /* Ajusta este valor según el espacio que desees */
+  gap: 1px; 
 }
 
 //Estilo del carrousel chip
@@ -88,7 +87,7 @@ swiper-container {
 
 .chip-scroll {
   display: flex;
-  gap: 10px; /* Espacio entre chips */
+  gap: 10px; 
   padding: 5px;
 }
 
@@ -99,23 +98,23 @@ swiper-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; 
-  gap: 10px; /* Espacio entre las cards */
+  gap: 10px; 
   padding: 10px;
 }
 
 app-item-product {
-  flex: 1 1 calc(50% - 10px); /* 📌 Dos cards por fila */
+  flex: 1 1 calc(50% - 10px);
   max-width: 180px; 
 }
 
-/* 📱 Ajuste para celulares pequeños (<400px) */
+/* Ajuste para celulares pequeños (<400px) */
 @media (max-width: 400px) {
   app-item-product {
     max-width: 150px; 
   }
 }
 
-/* 📱 Ajuste para celulares grandes (>400px) */
+/* Ajuste para celulares grandes (>400px) */
 @media (min-width: 401px) {
   app-item-product {
     max-width: 190px;

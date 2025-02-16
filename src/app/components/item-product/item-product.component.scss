@@ -32,13 +32,6 @@
   }
 }
 
-/* Ajuste para pantallas pequeñas */
-@media (max-width: 400px) {
-  .favorite-icon {
-      font-size: 24px;
-  }
-}
-
 /*  Ajustes de la Card */
 ion-card {
   width: 100%;
@@ -55,7 +48,7 @@ ion-card {
 /* Imagen dentro de la Card */
 ion-card img {
   width: 100%;
-  height: 120px;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
 }

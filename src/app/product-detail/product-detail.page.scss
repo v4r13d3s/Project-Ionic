@@ -1,9 +1,10 @@
-/* 📌 Imagen dentro de la Card */
+
 img {
-    width: 100%;
+    width: 80%;
     height: auto; /* 📌 Tamaño fijo */
     object-fit: cover;
-    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
   }
 
 /* 📌 Contenedor del Header */
@@ -64,14 +65,10 @@ h3 {
 
   .favorite-icon {
     font-size: 22px;
-    color: #999;
     cursor: pointer;
     transition: color 0.3s;
   }
 
-  &:hover {
-    color: #ff4081; /* Cambia a un color rosado al pasar el mouse */
-  }
 }
 
   

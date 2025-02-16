@@ -9,8 +9,7 @@
 
     <h3>{{ nombre }}</h3>
     <p>{{ precio }}</p>
-    <p class="category">Categoría: {{ category }}</p>
-    <p class="description">{{ description }}</p>
+    <p class="category" style="font-size: 15px;">Categoría: {{ category }}</p>
   </ion-card-header>
 
   <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites(); $event.stopPropagation();"></ion-icon>

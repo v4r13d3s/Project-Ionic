@@ -19,7 +19,9 @@
     </div>
     <div class="price-container">
       <p>{{ precio }}</p>
-      <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+      <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" class="favorite-icon"
+        [style.color]="isFavorite ? 'red' : '#999'" (click)="toggleFavorite()">
+      </ion-icon>
     </div>
     <h2>{{ nombre }}</h2>
   </ion-card-header>
