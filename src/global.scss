@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -8,6 +9,10 @@
  * For more information on global stylesheets, visit the documentation:
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
+
+ :root {
+  --ion-font-family: "DynaPuff", serif;
+ }
 
  ion-tab-bar {
     --background: #ffffff;
