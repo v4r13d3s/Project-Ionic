@@ -12,4 +12,10 @@ export class MenuInferiorComponent  implements OnInit {
 
   ngOnInit() {}
 
+  activeTab: string = 'Inicio';
+
+  setActiveTab(tab: string): void {
+    this.activeTab = tab;
+  }
+
 }

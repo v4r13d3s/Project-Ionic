@@ -2,9 +2,9 @@
   
   <ion-header>
     <ion-toolbar color="primary" style="--ion-border-color: transparent;"> 
-      <div style="display: flex; align-items: center; justify-content: space-around;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 30px">
         <img src="assets/images/LogoMariaStore.svg" style="width: 50px; height: auto; object-fit: cover; margin-left: 10px;">
-        <h2 style="font-weight: bold; text-align: center; font-weight: 400;"><span style="color: #d15cf2;">Maria's</span> <span style="color: #5c9df2;"> Store</span></h2>
+        <h2 style="font-weight: bold; font-weight: 400;"><span style="color: #d15cf2;">Maria's</span> <span style="color: #5c9df2;"> Store</span></h2>
         
       </div>
       <ion-buttons slot="end">
@@ -78,27 +78,9 @@
       </div>
 
       <!-- Menú inferior -->
-      <div id="footer" style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000;">
-        <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="home" routerLink="/home">
-            <ion-icon name="home-outline"></ion-icon>
-            <ion-label>Inicio</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="categorias" routerLink="/categorias">
-            <ion-icon name="duplicate-outline"></ion-icon>
-            <ion-label>Categorias</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="favoritos" routerLink="/favoritos">
-            <ion-icon name="heart-outline"></ion-icon>
-            <ion-label>Favoritos</ion-label>
-          </ion-tab-button>
-          <ion-tab-button tab="perfil" routerLink="/perfil">
-            <ion-icon name="person-outline"></ion-icon>
-            <ion-label>Perfil</ion-label>
-          </ion-tab-button>
-        </ion-tab-bar>
-      
-      </div>
+      <app-menu-inferior id="footer">
+       
+      </app-menu-inferior>
 
     </ion-content>
 

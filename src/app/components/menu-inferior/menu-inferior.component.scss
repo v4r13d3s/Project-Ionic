@@ -1,0 +1,24 @@
+/* Oculta los labels por defecto */
+ion-label {
+    display: none;
+    font-size: 12px;
+    margin-top: 4px;
+    transition: opacity 6s ease;
+  }
+  
+/* Muestra el label solo para la pestaña activa */
+  ion-label.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  ion-tab-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+
+  
