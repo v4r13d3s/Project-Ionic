@@ -23,7 +23,23 @@
         [style.color]="isFavorite ? 'red' : '#999'" (click)="toggleFavorite()">
       </ion-icon>
     </div>
-    <h2>{{ nombre }}</h2>
+    <h2 style="font-weight: 400;">{{ nombre }}</h2>
   </ion-card-header>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="addToCart()">
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>Añadir al carrito</ion-label>
+    </ion-tab-button>
+  
+    <ion-tab-button (click)="payNow()">
+      <ion-icon name="cash"></ion-icon>
+      <ion-label>Pagar</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+
 </ion-content>
+
+
 

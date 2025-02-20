@@ -1,18 +1,18 @@
 <ion-tab-bar slot="bottom">
-  <ion-tab-button tab="Inicio" routerLink="/home" (click)="setActiveTab('Inicio')">
+  <ion-tab-button tab="Inicio" routerLink="/home">
     <img src="assets/icon/home.svg" alt="Inicio">
-    <ion-label [class.active]="activeTab === 'Inicio'">home</ion-label>
+    <ion-label class="tab-label">home</ion-label>
   </ion-tab-button>
-  <ion-tab-button tab="Categorias" routerLink="/categorias" (click)="setActiveTab('Categorias')">
+  <ion-tab-button tab="Categorias" routerLink="/categorias">
     <img src="assets/icon/category.svg" alt="Categorias">
-    <ion-label [class.active]="activeTab === 'Categorias'">Categorias</ion-label>
+    <ion-label class="tab-label">Categorias</ion-label>
   </ion-tab-button>
-  <ion-tab-button tab="Favoritos" routerLink="/favoritos" (click)="setActiveTab('Favoritos')">
+  <ion-tab-button tab="Favoritos" routerLink="/favoritos">
     <img src="assets/icon/heart.svg" alt="Favoritos">
-    <ion-label [class.active]="activeTab === 'Favoritos'">Favoritos</ion-label>
+    <ion-label class="tab-label">Favoritos</ion-label>
   </ion-tab-button>
-  <ion-tab-button tab="Perfil" routerLink="/perfil" (click)="setActiveTab('Perfil')">
+  <ion-tab-button tab="Perfil" routerLink="/perfil">
     <img src="assets/icon/user.svg" alt="Perfil">
-    <ion-label [class.active]="activeTab === 'Perfil'">Perfil</ion-label>
+    <ion-label class="tab-label">Perfil</ion-label>
   </ion-tab-button>
 </ion-tab-bar>

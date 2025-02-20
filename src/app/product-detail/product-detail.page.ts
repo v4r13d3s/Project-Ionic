@@ -33,4 +33,11 @@ export class ProductDetailPage implements OnInit {
     this.isFavorite = !this.isFavorite; // Cambia el estado al hacer clic
   }
 
+  addToCart() {
+    console.log("Producto añadido al carrito");
+  }
+  
+  payNow() {
+    console.log("Redirigiendo al pago...");
+  }
 }
