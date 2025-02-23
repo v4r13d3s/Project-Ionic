@@ -12,14 +12,7 @@
   text-decoration: none;
 }
 
-swiper-container, swiper-slide {
-  width: 100%; 
-}
 
-swiper-container {
-  width: 95%;
-  margin: 0 auto;
-}
 
 .image-container {
   display: flex; 
@@ -54,27 +47,6 @@ swiper-container {
   margin-top: 20px;
 }
 
-//Footer
-#footer {
-  position: fixed; 
-  bottom: 0;       
-  left: 0;         
-  width: 100%;     
-  z-index: 1000;   
-}
-
-
-
-
-//Espacio entre las cards de promociones
-.card-container ion-card {
-  margin: 2px; 
-}
-
-.card-container {
-  display: flex;
-  gap: 1px; 
-}
 
 //Estilo del carrousel chip
 .chip-container {
@@ -92,14 +64,26 @@ swiper-container {
 }
 
 
+//Espacio entre las cards de promociones
+.card-container ion-card {
+  margin: 2px; 
+}
+
+.card-container {
+  display: flex;
+  gap: 1px; 
+}
+
+
 
 
 .product-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; 
-  gap: 10px; 
+  flex-wrap:wrap;
+  justify-content: space-around; 
+  gap: 10;
   padding: 10px;
+  align-items: center;
 }
 
 app-item-product {
@@ -119,4 +103,14 @@ app-item-product {
   app-item-product {
     max-width: 190px;
   }
+}
+
+
+//Footer
+#footer {
+  position: fixed; 
+  bottom: 0;       
+  left: 0;         
+  width: 100%;     
+  z-index: 1000;   
 }

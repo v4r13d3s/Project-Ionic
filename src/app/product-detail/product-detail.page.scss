@@ -43,16 +43,6 @@ header {
     margin-top: 10px;
 
 /* 📌 Texto con puntos suspensivos si es muy largo */
-h3 {
-    color: #000000;
-    font-family: sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    margin-top: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
   
   p {
     color: #091ce5;
@@ -71,4 +61,22 @@ h3 {
 
 }
 
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+//Footer
+#footer {
+  position: fixed; 
+  bottom: 0;       
+  left: 0;         
+  width: 100%;     
+  z-index: 1000;   
+}
   
+
+ion-title {
+  color: #000000;
+  font-size: 18px;
+}

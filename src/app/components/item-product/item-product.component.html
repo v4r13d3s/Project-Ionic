@@ -1,16 +1,18 @@
-<ion-card style="border-radius: 30px; position: relative;" (click)="navigateToDetail(nombre, precio, productUrl)">
-  <ion-icon name="cart" class="cart-icon"></ion-icon>
-  <img alt="Producto" [src]="productUrl" />
-  <ion-card-header>
+<ion-card (click)="navigateToDetail(nombre, precio, productUrl)">
+  <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+  <div class="image-container" >
+    <img alt="Producto" [src]="productUrl" />
+  </div>
+  <div class="description">
     <div class="rating">
       <ion-icon name="star"></ion-icon>
       <span>{{ randomNumber }}</span>
     </div>
 
     <h3>{{ nombre }}</h3>
+    <p class="category" style="font-size: 15px;">{{ category }}</p>
     <p>{{ precio }}</p>
-    <p class="category" style="font-size: 15px;">Categoría: {{ category }}</p>
-  </ion-card-header>
+  </div>
 
   <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites(); $event.stopPropagation();"></ion-icon>
 </ion-card>
