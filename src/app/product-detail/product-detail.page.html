@@ -1,11 +1,11 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" routerLink="/home">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-buttons>
     <ion-title>Detalles del producto</ion-title>
     <ion-buttons slot="end">
-      <ion-icon name="notifications-outline" style="font-size: 35px; padding-right: 15px;"></ion-icon>
+      <img src="/assets/icon/share.svg" alt="Share" style="font-size: 60px; padding-right: 15px;">
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -17,11 +17,31 @@
       <ion-icon name="star"></ion-icon>
       <span>{{ randomNumber }}</span>
     </div>
+    
+      
+      
+    
     <div class="price-container">
-      <p>{{ precio }}</p>
-      <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+    <h2 style="font-weight: 400;">{{ nombre }}</h2>
+    <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" class="favorite-icon"
+      [style.color]="isFavorite ? 'red' : '#999'" (click)="toggleFavorite()">
+    </ion-icon>
     </div>
-    <h2>{{ nombre }}</h2>
+    <p>{{ precio }}</p>
   </ion-card-header>
-</ion-content>
 
+  <ion-footer id="footer">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="addToCart()">
+        <ion-icon name="cart"></ion-icon>
+        <ion-label>Añadir al carrito</ion-label>
+      </ion-tab-button>
+    
+      <ion-tab-button (click)="payNow()">
+        <ion-icon name="cash"></ion-icon>
+        <ion-label>Pagar</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-footer>
+
+</ion-content>

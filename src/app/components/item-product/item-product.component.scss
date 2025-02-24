@@ -3,26 +3,16 @@
   top: 10px;
   right: 10px;
   color: #ff0000;
-  cursor: pointer;
-    font-size: 6vw;  
-  }
-  .cart-icon {
-    position: absolute;
-    top: 10px; 
-    left: 10px; 
-    font-size: 20px;
-    color: #4caf50; 
-    background-color: #ffffff; 
-    border-radius: 50%; 
-    padding: 5px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1; 
+  cursor: pointer; 
+  background-color: #ffffff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%; 
   }
   
-  @media (max-width: 400px) {
-    .favorite-icon {
-      font-size: 24px; 
-    }
+@media (max-width: 400px) {
+  .favorite-icon {
+    font-size: 28px; 
+  }
 }
 
 /* Ajuste para pantallas grandes */
@@ -32,18 +22,24 @@
   }
 }
 
-/* Ajuste para pantallas pequeñas */
-@media (max-width: 400px) {
-  .favorite-icon {
-      font-size: 24px;
-  }
+.cart-icon {
+  position: absolute;
+  top: 10px; 
+  left: 10px; 
+  font-size: 28px;
+  background-color: #ffffff; 
+  color: #000000;
+  border-radius: 50%; 
+  padding: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1; 
 }
 
 /*  Ajustes de la Card */
 ion-card {
   width: 100%;
   height: 250px;
-  padding: 8px;
+  padding: 2px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
   border-radius: 12px;
   display: flex;
@@ -52,20 +48,32 @@ ion-card {
   position: relative; 
 }
 
+
+
 /* Imagen dentro de la Card */
 ion-card img {
   width: 100%;
-  height: 120px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
 }
 
-ion-card-header {
-  flex-grow: 1;
+/* Contenedor de la imagen */
+.image-container {
+  width: 100%;
+  height: 150px; /* Ajusta la altura según tus necesidades */
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  position: relative;
 }
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 .rating {
   display: flex;
@@ -87,6 +95,7 @@ ion-card-header {
   }
 }
 
+/* 📌 Texto con puntos suspensivos si es muy largo */
 h3 {
   color: #000000;
   font-family: sans-serif;
@@ -96,13 +105,24 @@ h3 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 
 p {
-  color: #091ce5;
+  color: #1e1e20;
   font-family: sans-serif;
   font-size: 22px;
   margin-top: 2px;
   margin-bottom: 4px;
   font-weight: bold;
+  text-align: center;
+}
+
+.category {
+  color: #1e1e20;
+  font-family: sans-serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-align: center;
 }

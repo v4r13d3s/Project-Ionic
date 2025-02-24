@@ -26,6 +26,18 @@ export class ProductDetailPage implements OnInit {
     });
   }
 
+  
+  isFavorite = false; // Estado inicial: no está en favoritos
+  
+  toggleFavorite() {
+    this.isFavorite = !this.isFavorite; // Cambia el estado al hacer clic
+  }
 
-
+  addToCart() {
+    console.log("Producto añadido al carrito");
+  }
+  
+  payNow() {
+    console.log("Redirigiendo al pago...");
+  }
 }

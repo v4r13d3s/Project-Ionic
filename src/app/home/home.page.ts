@@ -86,34 +86,40 @@ export class HomePage {
 
   chips: any[] = [
     {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/1930/1930026.png",
+      categoria: "Todo",
+      color: "#e4eaf5",  
+      textColor: "#000000" 
+    },
+    {
       chipUrl: "https://cdn-icons-png.flaticon.com/512/448/448173.png",
       categoria: "Papel",
-      color: "#e6eeff",  // Color de fondo
-      textColor: "#000000" // Color del texto
+      color: "#e6eeff",  
+      textColor: "#000000" 
     },
     {
       chipUrl: "https://cdn-icons-png.flaticon.com/512/1546/1546945.png",
       categoria: "Escolares",
-      color: "#ffe6f9",  // Color de fondo
-      textColor: "#000000" // Color del texto
+      color: "#ffe6f9",  
+      textColor: "#000000" 
     },
     {
       chipUrl: "https://cdn-icons-png.flaticon.com/512/3683/3683305.png",
       categoria: "Cuadernos",
-      color: "#f0e6ff",  // Color de fondo
-      textColor: "#000000" // Color del texto
+      color: "#f0e6ff",  
+      textColor: "#000000" 
     },
     {
       chipUrl: "https://cdn-icons-png.flaticon.com/512/12695/12695315.png",
       categoria: "Escritura",
-      color: "#e6ffff",  // Color de fondo
-      textColor: "#000000" // Color del texto
+      color: "#e6ffff",  
+      textColor: "#000000" 
     },
     {
       chipUrl: "https://cdn-icons-png.flaticon.com/512/1142/1142618.png",
       categoria: "Oficina",
-      color: "#ffffe6",  // Color de fondo
-      textColor: "#000000" // Color del texto
+      color: "#ffffe6",  
+      textColor: "#000000" 
     },
     {
       chipUrl: "https://cdn-icons-png.flaticon.com/512/2970/2970785.png",
@@ -162,7 +168,7 @@ export class HomePage {
 
   navigateToDetail(product: any) {
     this.navCtrl.navigateForward('/product-detail', {
-      queryParams: product, // Pasa los datos del producto como query params
+      queryParams: product, 
     });
   }
 }

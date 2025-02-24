@@ -1,9 +1,10 @@
-/* 📌 Imagen dentro de la Card */
+
 img {
-    width: 100%;
+    width: 80%;
     height: auto; /* 📌 Tamaño fijo */
     object-fit: cover;
-    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
   }
 
 /* 📌 Contenedor del Header */
@@ -42,16 +43,6 @@ header {
     margin-top: 10px;
 
 /* 📌 Texto con puntos suspensivos si es muy largo */
-h3 {
-    color: #000000;
-    font-family: sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    margin-top: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
   
   p {
     color: #091ce5;
@@ -64,14 +55,28 @@ h3 {
 
   .favorite-icon {
     font-size: 22px;
-    color: #999;
     cursor: pointer;
     transition: color 0.3s;
   }
 
-  &:hover {
-    color: #ff4081; /* Cambia a un color rosado al pasar el mouse */
-  }
 }
 
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+//Footer
+#footer {
+  position: fixed; 
+  bottom: 0;       
+  left: 0;         
+  width: 100%;     
+  z-index: 1000;   
+}
   
+
+ion-title {
+  color: #000000;
+  font-size: 18px;
+}

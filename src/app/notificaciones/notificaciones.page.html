@@ -59,26 +59,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" id="main-content">
-  <div id="footer" style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000;">
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home" routerLink="/home">
-        <ion-icon name="home-outline"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="categorias" routerLink="/categorias">
-        <ion-icon name="duplicate-outline"></ion-icon>
-        <ion-label>Categorias</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="favoritos" routerLink="/favoritos">
-        <ion-icon name="heart-outline"></ion-icon>
-        <ion-label>Favoritos</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="perfil" routerLink="/perfil">
-        <ion-icon name="person-outline"></ion-icon>
-        <ion-label>Perfil</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
   
-  </div>
 
 </ion-content>
+
+<ion-tab-bar slot="bottom" id="footer">
+  <ion-tab-button tab="home" routerLink="/home">
+    <img src="assets/icon/home.svg" alt="Inicio">
+    <ion-label>home</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="categorias" routerLink="/categorias">
+    <img src="assets/icon/category.svg" alt="Categorias">
+    <ion-label>Categorias</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="favoritos" routerLink="/favoritos">
+    <img src="assets/icon/heart.svg" alt="Favoritos">
+    <ion-label>Favoritos</ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="perfil" routerLink="/perfil">
+    <img src="assets/icon/user.svg" alt="Perfil">
+    <ion-label>Perfil</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
