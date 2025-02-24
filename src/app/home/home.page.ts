@@ -86,6 +86,12 @@ export class HomePage {
 
   chips: any[] = [
     {
+      chipUrl: "https://cdn-icons-png.flaticon.com/512/1930/1930026.png",
+      categoria: "Todo",
+      color: "#e4eaf5",  
+      textColor: "#000000" 
+    },
+    {
       chipUrl: "https://cdn-icons-png.flaticon.com/512/448/448173.png",
       categoria: "Papel",
       color: "#e6eeff",  

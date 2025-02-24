@@ -17,13 +17,17 @@
       <ion-icon name="star"></ion-icon>
       <span>{{ randomNumber }}</span>
     </div>
+    
+      
+      
+    
     <div class="price-container">
-      <p>{{ precio }}</p>
-      <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" class="favorite-icon"
-        [style.color]="isFavorite ? 'red' : '#999'" (click)="toggleFavorite()">
-      </ion-icon>
-    </div>
     <h2 style="font-weight: 400;">{{ nombre }}</h2>
+    <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" class="favorite-icon"
+      [style.color]="isFavorite ? 'red' : '#999'" (click)="toggleFavorite()">
+    </ion-icon>
+    </div>
+    <p>{{ precio }}</p>
   </ion-card-header>
 
   <ion-footer id="footer">
