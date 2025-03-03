@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 img {
     width: 80%;
@@ -18,8 +19,8 @@ header {
 .rating {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   font-size: 40px;
+  margin-bottom: 4px;
 
   ion-icon {
     color: gold;
@@ -31,7 +32,6 @@ header {
     font-size: 16px;
     color: #000000;
     font-family: sans-serif;
-    margin-bottom: 0px;
     margin-left: 2px;
   }
 }
@@ -40,28 +40,29 @@ header {
     display: flex;
     justify-content: space-between; /* Separa el precio y el corazón */
     align-items: center; /* Centra verticalmente */
-    margin-top: 10px;
-
+    margin: 0 6px 0 6px;
+    gap: 10px;
+}
 /* 📌 Texto con puntos suspensivos si es muy largo */
   
-  p {
-    color: #091ce5;
-    font-family: sans-serif;
-    font-size: 22px;
-    margin-top: 2px;
-    margin-bottom: 4px;
-    font-weight: bold;
-  }
-
-  .favorite-icon {
-    font-size: 22px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-
+h3 {
+  color: #050505;
+  font-family: sans-serif;
+  font-size: 22px;
+  margin: 8px 6px 4px;
 }
 
+.favorite-icon {
+  font-size: 50px;
+  cursor: pointer;
+  transition: color 0.3s;
+  color: #000000;
+}
+
+
+
 h2 {
+  margin-top: 4px;
   font-size: 18px;
   font-weight: 700;
 }
@@ -79,4 +80,6 @@ h2 {
 ion-title {
   color: #000000;
   font-size: 18px;
+  font-family: "Nunito", serif;
+  text-align: center;
 }

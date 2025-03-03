@@ -12,33 +12,36 @@
 
 <ion-content>
   <img [src]="productUrl" alt="Producto" />
-  <ion-card-header>
+  <div style="display: flex; flex-direction: row; justify-content: space-between;
+  margin: 0 6px 4px; align-items: center;">
+    <p style="font-size: 20px; margin: 0 0 2px;"> {{ category }} </p>
     <div class="rating">
       <ion-icon name="star"></ion-icon>
       <span>{{ randomNumber }}</span>
     </div>
-    
-      
-      
-    
-    <div class="price-container">
+  </div>
+  <div class="price-container">
     <h2 style="font-weight: 400;">{{ nombre }}</h2>
-    <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" class="favorite-icon"
-      [style.color]="isFavorite ? 'red' : '#999'" (click)="toggleFavorite()">
+    <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" 
+    class="favorite-icon"
+    [style.color]="isFavorite ? 'red' : '#999'" 
+    (click)="toggleFavorite()">
     </ion-icon>
-    </div>
-    <p>{{ precio }}</p>
-  </ion-card-header>
+    
+  </div>
+  <p style="margin: 0 6px 0; font-size: 12px;"> {{ description }} </p>
+  <h3>{{ precio }}</h3>
+  
 
   <ion-footer id="footer">
     <ion-tab-bar slot="bottom">
       <ion-tab-button (click)="addToCart()">
-        <ion-icon name="cart"></ion-icon>
+        <ion-icon name="cart-outline"></ion-icon>
         <ion-label>Añadir al carrito</ion-label>
       </ion-tab-button>
     
       <ion-tab-button (click)="payNow()">
-        <ion-icon name="cash"></ion-icon>
+        <ion-icon name="cash-outline"></ion-icon>
         <ion-label>Pagar</ion-label>
       </ion-tab-button>
     </ion-tab-bar>

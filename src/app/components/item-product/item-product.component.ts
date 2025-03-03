@@ -27,9 +27,9 @@ export class ItemProductComponent implements OnInit {
 
   ngOnInit() {}
   // Navegar a la página de detalles con los datos del producto
-  navigateToDetail(nombre: string, precio: string, productUrl: string) {
+  navigateToDetail(nombre: string, precio: string, productUrl: string, category: string, description: string) {
     this.router.navigate(['product-detail'], {
-      queryParams: { nombre, precio, productUrl }
+      queryParams: { nombre, precio, productUrl, category, description }
     });
   }
 
@@ -39,7 +39,7 @@ export class ItemProductComponent implements OnInit {
     if (index !== -1) {
       this.favorites.splice(index, 1); 
     } else {
-      this.favorites.push({ name: this.nombre, imageUrl: this.productUrl, price: this.precio });
+      this.favorites.push({ name: this.nombre, imageUrl: this.productUrl, price: this.precio, category: this.category, description: this.description });
     }
     console.log(this.favorites);
   }

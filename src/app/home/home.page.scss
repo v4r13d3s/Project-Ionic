@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 #container {
   text-align: center;
 
@@ -92,16 +94,16 @@ app-item-product {
 }
 
 /* Ajuste para celulares pequeños (<400px) */
-@media (max-width: 400px) {
+@media (min-width: 400px) {
   app-item-product {
-    max-width: 150px; 
+    width: 150px; 
   }
 }
 
 /* Ajuste para celulares grandes (>400px) */
-@media (min-width: 401px) {
+@media (max-width: 400px) {
   app-item-product {
-    max-width: 190px;
+    width: 200px;
   }
 }
 

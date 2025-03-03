@@ -11,6 +11,8 @@ export class ProductDetailPage implements OnInit {
   nombre: string = '';
   precio: string = '';
   productUrl: string = '';
+  category: string = '';
+  description: string = '';
 
   randomNumber: number;
 
@@ -23,6 +25,8 @@ export class ProductDetailPage implements OnInit {
       this.nombre = params['nombre'];
       this.precio = params['precio'];
       this.productUrl = params['productUrl'];
+      this.category = params['category'];
+      this.description = params['description']
     });
   }
 
