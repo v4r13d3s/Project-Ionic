@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service'; // Importar el servicio
 
 @Component({
   selector: 'app-item-product',
@@ -21,15 +22,16 @@ export class ItemProductComponent implements OnInit {
   
   randomNumber: number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cartService: CartService) {
     this.randomNumber = Math.floor(Math.random() * 5) + 1;
   }
 
   ngOnInit() {}
+
   // Navegar a la página de detalles con los datos del producto
-  navigateToDetail(nombre: string, precio: string, productUrl: string) {
+  navigateToDetail(nombre: string, precio: string, productUrl: string, category: string, description: string) {
     this.router.navigate(['product-detail'], {
-      queryParams: { nombre, precio, productUrl }
+      queryParams: { nombre, precio, productUrl, category, description }
     });
   }
 
@@ -39,7 +41,7 @@ export class ItemProductComponent implements OnInit {
     if (index !== -1) {
       this.favorites.splice(index, 1); 
     } else {
-      this.favorites.push({ name: this.nombre, imageUrl: this.productUrl, price: this.precio });
+      this.favorites.push({ name: this.nombre, imageUrl: this.productUrl, price: this.precio, category: this.category, description: this.description });
     }
     console.log(this.favorites);
   }
@@ -56,4 +58,17 @@ export class ItemProductComponent implements OnInit {
       item.totalPrice = item.quantity * item.price;
     }
   }
+
+  // Agregar producto al carrito
+  addToCart() {
+    const product = {
+      productUrl: this.productUrl,
+      nombre: this.nombre,
+      precio: this.precio,
+      category: this.category,
+      description: this.description,
+    };
+    this.cartService.addToCart(product);
+  }
+
 }
