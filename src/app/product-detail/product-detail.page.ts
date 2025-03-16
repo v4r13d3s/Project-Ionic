@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../services/cart.service'; // Importar el servicio del carrito
 
 @Component({
   selector: 'app-product-detail',
@@ -15,8 +16,10 @@ export class ProductDetailPage implements OnInit {
   description: string = '';
 
   randomNumber: number;
+  isFavorite = false; // Estado inicial: no está en favoritos
+  productCount: number = 0; // Contador de productos
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private cartService: CartService) {
     this.randomNumber = Math.floor(Math.random() * 5) + 1;
   }
 
@@ -31,17 +34,39 @@ export class ProductDetailPage implements OnInit {
   }
 
   
-  isFavorite = false; // Estado inicial: no está en favoritos
   
   toggleFavorite() {
     this.isFavorite = !this.isFavorite; // Cambia el estado al hacer clic
   }
 
   addToCart() {
-    console.log("Producto añadido al carrito");
+    if (this.productCount > 0) {
+      const product = {
+        nombre: this.nombre,
+        precio: this.precio,
+        productUrl: this.productUrl,
+        quantity: this.productCount
+      };
+      this.cartService.addToCart(product);
+      console.log("Producto añadido al carrito:", product);
+    }
   }
   
   payNow() {
     console.log("Redirigiendo al pago...");
+  }
+
+
+   // Funciones para manejar el contador
+   increaseCount() {
+    if (this.productCount < 10) {
+      this.productCount++;
+    }
+  }
+
+  decreaseCount() {
+    if (this.productCount > 0) {
+      this.productCount--;
+    }
   }
 }

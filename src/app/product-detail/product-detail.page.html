@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <img [src]="productUrl" alt="Producto" />
+  <img [src]="productUrl" alt="Producto"/>
   <div style="display: flex; flex-direction: row; justify-content: space-between;
   margin: 0 6px 4px; align-items: center;">
     <p style="font-size: 20px; margin: 0 0 2px;"> {{ category }} </p>
@@ -31,7 +31,19 @@
   </div>
   <p style="margin: 0 6px 0; font-size: 12px;"> {{ description }} </p>
   <h3>{{ precio }}</h3>
-  
+
+   <!-- Contador de productos -->
+  <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+    <ion-button shape="round" (click)="decreaseCount()" [disabled]="productCount === 0">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+    
+    <span style="margin: 0 15px; font-size: 18px;">{{ productCount }}</span>
+    
+    <ion-button shape="round" (click)="increaseCount()" [disabled]="productCount === 10">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </div>
 
   <ion-footer id="footer">
     <ion-tab-bar slot="bottom">

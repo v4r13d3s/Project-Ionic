@@ -1,0 +1,69 @@
+.content-background {
+    --background: linear-gradient(180deg, rgba(255, 255, 255, 0.965) 0%, rgba(210, 210, 250, 0.957) 100%);
+    backdrop-filter: blur(8px); /* Efecto de desenfoque elegante */
+  }
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+  }
+
+ion-content {
+}
+
+ion-content {
+    --background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    margin: 40px 0 10px;
+  }
+  
+  .highlight {
+    color: #ff66b2;
+    font-weight: bold;
+  }
+  
+  .highlight-blue {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  ion-button {
+    border-radius: 10px;
+  }
+  
+  h2 {
+    margin: 2px 0;
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 14px;
+    padding: 5px 40px 10px;
+  }
+
+  .custom-card {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  
