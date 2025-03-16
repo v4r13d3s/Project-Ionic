@@ -3,18 +3,13 @@
     <div class="form-container">
       <p class="title">Registrarse</p>
       <form class="register-form" (ngSubmit)="onRegister()">
-        
+
+        <!-- Nombre completo -->
         <ion-item [class.error]="nameInvalid && nameTouched">
           <ion-icon name="person-outline" size="large" slot="start"></ion-icon>
           <ion-label position="floating">Nombre completo</ion-label>
-          <ion-input 
-            type="text" 
-            [(ngModel)]="name" 
-            name="name" 
-            required
-            (blur)="onFieldBlur('name')" 
-            (input)="onFieldInput('name')" 
-            #nameInput="ngModel">
+          <ion-input type="text" [(ngModel)]="name" name="name" required (blur)="onFieldBlur('name')"
+            (input)="onFieldInput('name')" #nameInput="ngModel">
           </ion-input>
         </ion-item>
 
@@ -22,56 +17,55 @@
         <ion-item [class.error]="emailInvalid && emailTouched">
           <ion-icon name="mail-outline" slot="start" size="large"></ion-icon>
           <ion-label position="floating">Correo electrónico</ion-label>
-          <ion-input 
-            type="email" 
-            [(ngModel)]="email" 
-            name="email" 
-            required
-            (blur)="onFieldBlur('email')" 
-            (input)="onFieldInput('email')" 
-            #emailInput="ngModel">
+          <ion-input type="email" [(ngModel)]="email" name="email" required (blur)="onFieldBlur('email')"
+            (input)="onFieldInput('email')" #emailInput="ngModel">
           </ion-input>
         </ion-item>
-        
-        <!-- Contraseña -->
-        <ion-item [class.error]="passwordInvalid && passwordTouched">
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-icon slot="start" size="large"
-            class="show-password" 
-            name="{{passwordVisible ? 'lock-open-outline' : 'lock-closed-outline'}}" 
-            (click)="togglePasswordVisibility()">
-          </ion-icon>
-          <ion-input 
-          [(ngModel)]="password" 
-            name="password" 
-            [type]="passwordVisible ? 'text' : 'password'" 
-            required
-            (blur)="onFieldBlur('password')" 
-            (input)="onFieldInput('password')" 
-            #passwordInput="ngModel">
-          </ion-input>
-        </ion-item>
-        
-        <!-- Confirmar Contraseña -->
-        <ion-item [class.error]="confirmPasswordInvalid && confirmPasswordTouched">
-          <ion-label position="floating">Confirmar contraseña</ion-label>
-          <ion-icon slot="start" size="large"
-            class="show-password" 
-            name="{{confirmPasswordVisible ? 'lock-open-outline' : 'lock-closed-outline'}}" 
-            (click)="toggleConfirmPasswordVisibility()">
-          </ion-icon>
-          <ion-input 
-            [(ngModel)]="confirmPassword" 
-            name="confirmPassword" 
-            [type]="confirmPasswordVisible ? 'text' : 'password'" 
-            required
-            (blur)="onFieldBlur('confirmPassword')" 
-            (input)="onFieldInput('confirmPassword')" 
-            #confirmPasswordInput="ngModel">
+        <!-- Número de Teléfono -->
+        <ion-item [class.error]="phoneInvalid && phoneTouched">
+          <ion-icon name="call-outline" slot="start" size="large"></ion-icon>
+          <ion-label position="floating">Número de teléfono</ion-label>
+          <ion-input type="tel" [(ngModel)]="phone" name="phone" required (blur)="onFieldBlur('phone')"
+            (input)="onFieldInput('phone')" #phoneInput="ngModel">
           </ion-input>
         </ion-item>
 
-        <ion-button expand="full" type="submit" routerLink="/login"  class="register-button" [disabled]="!name || !email || !password || !confirmPassword || emailInvalid || passwordInvalid || confirmPasswordInvalid">
+        <!-- Fecha de Nacimiento -->
+        <ion-item [class.error]="birthDateInvalid && birthDateTouched">
+          <ion-icon name="calendar-outline" slot="start" size="large"></ion-icon>
+          <ion-label position="floating">Fecha de nacimiento</ion-label>
+          <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="birthDate" name="birthDate" required
+            (blur)="onFieldBlur('birthDate')" (ionChange)="onFieldInput('birthDate')">
+          </ion-datetime>
+        </ion-item>
+
+        <!-- Contraseña -->
+        <ion-item [class.error]="passwordInvalid && passwordTouched">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-icon slot="start" size="large" class="show-password"
+            name="{{passwordVisible ? 'lock-open-outline' : 'lock-closed-outline'}}"
+            (click)="togglePasswordVisibility()">
+          </ion-icon>
+          <ion-input [(ngModel)]="password" name="password" [type]="passwordVisible ? 'text' : 'password'" required
+            (blur)="onFieldBlur('password')" (input)="onFieldInput('password')" #passwordInput="ngModel">
+          </ion-input>
+        </ion-item>
+
+        <!-- Confirmar Contraseña -->
+        <ion-item [class.error]="confirmPasswordInvalid && confirmPasswordTouched">
+          <ion-label position="floating">Confirmar contraseña</ion-label>
+          <ion-icon slot="start" size="large" class="show-password"
+            name="{{confirmPasswordVisible ? 'lock-open-outline' : 'lock-closed-outline'}}"
+            (click)="toggleConfirmPasswordVisibility()">
+          </ion-icon>
+          <ion-input [(ngModel)]="confirmPassword" name="confirmPassword"
+            [type]="confirmPasswordVisible ? 'text' : 'password'" required (blur)="onFieldBlur('confirmPassword')"
+            (input)="onFieldInput('confirmPassword')" #confirmPasswordInput="ngModel">
+          </ion-input>
+        </ion-item>
+
+        <ion-button expand="full" type="submit" routerLink="/login" class="register-button"
+          [disabled]="!name || !email || !phone || !birthDate || !password || !confirmPassword || emailInvalid || passwordInvalid || confirmPasswordInvalid">
           Registrarse
         </ion-button>
       </form>

@@ -3,14 +3,14 @@
   0% {
     background-position: 0% 50%;
   }
-  25%{
+  25% {
     background-position: 50% 100%;
   }
   50% {
     background-position: 100% 50%;
   }
   75% {
-    background-position: 50% 0%;  
+    background-position: 50% 0%;
   }
   100% {
     background-position: 0% 50%;
@@ -21,7 +21,7 @@
   background: linear-gradient(45deg, #a7c7e7, #ffebf0, #c2e9fb, #a7c7e7);
   background-size: 300% 300%;
   background-attachment: fixed;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -36,9 +36,9 @@
 /* Contenedor del formulario */
 .form-container {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 450px;
-  margin: 80px auto;
+  margin: 5vh auto;
   background-color: white;
   padding: 30px;
   border-radius: 12px;
@@ -57,12 +57,12 @@
 
 /* Título del formulario */
 .title {
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 700;
   text-align: center;
   color: black;
   animation: fadeIn 1.2s ease-in-out;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 @keyframes fadeIn {
@@ -77,7 +77,7 @@ ion-item {
   --padding-start: 12px;
   --padding-end: 12px;
   --border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   transition: transform 0.3s ease;
 }
 
@@ -117,18 +117,12 @@ ion-input {
   animation: fadeInButton 0.6s ease-in-out forwards;
 }
 
-@keyframes fadeInButton {
-  0% { opacity: 0; transform: scale(0.8); }
-  50% { opacity: 0.5; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
 .login-button:hover {
   background-color: #ff43d354;
   transform: translateY(-3px);
 }
 
-/* Estilos para el botón de Google */
+/* Botón de Google */
 .google-login-button {
   background-color: #6596ff69;
   color: black;
@@ -141,12 +135,6 @@ ion-input {
   transition: all 0.3s ease;
   opacity: 0;
   animation: fadeInGoogleButton 1.2s ease-in-out forwards;
-}
-
-@keyframes fadeInGoogleButton {
-  0% { opacity: 0; transform: translateY(10px); }
-  50% { opacity: 0.5; transform: translateY(5px); }
-  100% { opacity: 1; transform: translateY(0); }
 }
 
 .google-login-button:hover {
@@ -174,59 +162,57 @@ ion-item.error ion-label {
   animation: shake 0.3s ease-in-out;
 }
 
-
 ion-input:focus {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
   border-color: #007bff;
 }
 
 ion-icon {
-    cursor: pointer;
-    font-size: 24px;
-    color: #555;
-    transition: color 0.3s ease;
-  }
-  
-  ion-icon:hover {
-    color: #ff43d354;
-  }
-    
+  cursor: pointer;
+  font-size: 24px;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+ion-icon:hover {
+  color: #ff43d354;
+}
+
 .register-link {
-    text-align: center;
-    font-size: 14px;
-    color: #007bff;
-    margin-top: 20px;
-  }
-  
-  .login-link a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-  }
-  
-  .login-link a:hover {
-    color: #0056b3;
-  }
-  
-  .register-button {
-    background-color: #6596ff69;
-    color: black;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 15px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transform: scale(1);
-  }
-  
-  .register-button:hover {
-    background-color: #ff43d354;
-    transform: translateY(-3px);
-  }
-  
-  .register-button:active {
-    background-color: #ff22c82e;
-    transform: translateY(0);
-  }
+  text-align: center;
+  font-size: 14px;
+  color: #007bff;
+  margin-top: 10px;
+}
+
+.login-link a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  color: #0056b3;
+}
+
+.register-button {
+  background-color: #6596ff69;
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 15px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-button:hover {
+  background-color: #ff43d354;
+  transform: translateY(-3px);
+}
+
+.register-button:active {
+  background-color: #ff22c82e;
+  transform: translateY(0);
+}

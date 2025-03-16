@@ -12,7 +12,9 @@
       </ion-thumbnail>
       <ion-label>
         <h2>{{ item.nombre }}</h2>
-        <p>{{ item.precio }} x {{ item.quantity }}</p>
+        <p>Precio por unidad: {{ item.precio }}</p>
+        <p>Total: {{ item.precio * item.quantity | number:'1.2-2' }}</p>
+        <p>Cantidad: {{ item.quantity }}</p>
       </ion-label>
       <ion-button fill="clear" (click)="decreaseQuantity(item)">-</ion-button>
       <ion-button fill="clear" (click)="increaseQuantity(item)">+</ion-button>
