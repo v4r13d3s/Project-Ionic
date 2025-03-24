@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { AlertController, ModalController } from '@ionic/angular';
 import { DateTime } from 'luxon'; // Asegúrate de tener esta dependencia instalada
-import { DatePickerModal } from '../components/date-picker-modal/date-picker-modal.component';
+import { DatePickerModal } from '../../../components/date-picker-modal/date-picker-modal.component';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  templateUrl: './sign-up.page.html',
+  styleUrls: ['./sign-up.page.scss'],
   standalone: false,
 })
-export class RegisterPage implements OnInit {
+export class SignUpPage implements OnInit {
   fechaNacimiento: string = '';
   username: string = '';
   email: string = '';

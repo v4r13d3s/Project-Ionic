@@ -1,218 +1,166 @@
-/* Fondo animado con gradiente y movimiento fluido */
-@keyframes gradientWaves {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 50% 100%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 0%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.content-background {
+  --background: linear-gradient(180deg, rgba(255, 255, 255, 0.965) 0%, rgba(210, 210, 250, 0.957) 100%);
+  backdrop-filter: blur(8px);
+  /* Efecto de desenfoque elegante */
 }
 
-.background-overlay {
-  background: linear-gradient(45deg, #a7c7e7, #ffebf0, #c2e9fb, #a7c7e7);
-  background-size: 300% 300%;
-  background-attachment: fixed;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  animation: gradientWaves 10s ease-in-out infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -1;
+/* Mobile-optimized SCSS */
+:root {
+  --ion-color-primary: #3880ff;
+  --ion-text-color: #333333;
 }
 
-/* Contenedor del formulario */
-.form-container {
-  position: relative;
-  width: 90%;
-  max-width: 450px;
-  margin: 5vh auto;
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+ion-content {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  
+}
+
+.login-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  animation: fadeInForm 1s ease-in-out forwards;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 30px;
 }
 
-@keyframes fadeInForm {
-  0% { opacity: 0; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-
-/* Título del formulario */
-.title {
-  font-size: 28px;
-  font-weight: 700;
-  text-align: center;
-  color: black;
-  animation: fadeIn 1.2s ease-in-out;
-  margin-bottom: 10px;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* Estilos de los inputs */
-ion-item {
-  --background: #f9f9f9;
-  --box-shadow: none;
-  --padding-start: 12px;
-  --padding-end: 12px;
-  --border-radius: 10px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
-}
-
-ion-item:hover {
-  transform: scale(1.02);
-}
-
-ion-input {
-  color: black;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  animation: fadeInInput 1s ease-in-out forwards;
-}
-
-@keyframes fadeInInput {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Botón de login */
-.login-button {
-  background-color: #6596ff69;
-  color: black;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 15px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  animation: fadeInButton 0.6s ease-in-out forwards;
-}
-
-.login-button:hover {
-  background-color: #ff43d354;
-  transform: translateY(-3px);
-}
-
-/* Botón de Google */
-.google-login-button {
-  background-color: #6596ff69;
-  color: black;
-  font-weight: bold;
-  border-radius: 12px;
-  padding: 15px;
+.logo-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  opacity: 0;
-  animation: fadeInGoogleButton 1.2s ease-in-out forwards;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
-.google-login-button:hover {
-  background-color: #ff43d354;
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  margin-top: 6px;
 }
 
-/* Estilos de error */
-ion-item.error {
-  --background: #ffebeb;
-  border: 2px solid #ff6b6b;
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #666;
 }
 
-ion-item.error ion-label {
-  color: #ff6b6b;
+.custom-item {
+  --border-radius: 10px;
+  --background: #ffffff;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --inner-padding-end: 0;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  height: 50px;
 }
 
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-}
-
-.shake {
-  animation: shake 0.3s ease-in-out;
-}
-
-ion-input:focus {
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
-  border-color: #007bff;
+.custom-input {
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  font-size: 15px;
+  
 }
 
 ion-icon {
-  cursor: pointer;
-  font-size: 24px;
-  color: #555;
-  transition: color 0.3s ease;
+  font-size: 22px;
+  color: #666;
+  padding: 4px;
 }
 
-ion-icon:hover {
-  color: #ff43d354;
-}
-
-.register-link {
-  text-align: center;
-  font-size: 14px;
-  color: #007bff;
-  margin-top: 10px;
-}
-
-.login-link a {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-}
-
-.login-link a:hover {
-  color: #0056b3;
+a {
+  color: #0e64f9;
+  font-weight: 500;
 }
 
 .register-button {
-  background-color: #6596ff69;
-  color: black;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 15px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 48px;
+  font-size: 16px;
+  --border-radius: 10px;
+  --background: #FF69B4;
+  height: 50px;
+  color: white;
+  margin: 10px 0 20px;
+  
 }
 
-.register-button:hover {
-  background-color: #ff43d354;
-  transform: translateY(-3px);
+
+/* Device-specific adjustments */
+@media screen and (max-width: 375px) {
+
+  /* iPhone SE, smaller phones */
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .custom-item {
+    height: 46px;
+  }
 }
 
-.register-button:active {
-  background-color: #ff22c82e;
-  transform: translateY(0);
+@media screen and (min-width: 390px) {
+
+  /* iPhone 12/13, larger phones */
+  ion-content {
+    --padding-start: 20px;
+    --padding-end: 20px;
+  }
 }
+
+/* Safe area insets for iOS */
+.ios ion-content {
+  --padding-bottom: env(safe-area-inset-bottom);
+  --padding-top: env(safe-area-inset-top);
+}
+
+.logo img {
+  width: 240px;
+  /* Ajusta esto al tamaño que desees */
+  height: auto;
+  /* Mantiene la proporción de la imagen */
+}
+
+/* Estilos para el icono del calendario */
+ion-item img {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+ion-item img:active {
+  opacity: 1;
+}
+
+.container {
+  padding: 16px;
+}
+
+.error {
+  color: red;
+  margin: 4px 0;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+p {
+  color: var(--ion-color-medium);
+  margin: 0 35px;
+  font-size: 25px;
+}
+

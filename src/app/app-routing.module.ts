@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'sign-up',
     pathMatch: 'full'
   },
   {
@@ -54,6 +54,14 @@ const routes: Routes = [
   {
     path: 'first-page',
     loadChildren: () => import('./first-page/first-page.module').then( m => m.FirstPagePageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/features/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./auth/features/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
 ];
 
