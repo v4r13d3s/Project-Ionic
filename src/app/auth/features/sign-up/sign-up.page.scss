@@ -1,0 +1,185 @@
+.content-background {
+    --background: linear-gradient(180deg, rgba(255, 255, 255, 0.965) 0%, rgba(210, 210, 250, 0.957) 100%);
+    backdrop-filter: blur(8px);
+    /* Efecto de desenfoque elegante */
+  }
+  
+  /* Mobile-optimized SCSS */
+  :root {
+    --ion-color-primary: #3880ff;
+    --ion-text-color: #333333;
+  }
+  
+  ion-content {
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    
+  }
+  
+  .login-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .custom-item {
+    --border-radius: 10px;
+    --background: #ffffff;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --inner-padding-end: 0;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    height: 50px;
+  }
+  
+  .custom-input {
+    --padding-start: 6px;
+    --padding-end: 6px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+    font-size: 15px;
+    
+  }
+  
+  ion-icon {
+    font-size: 22px;
+    color: #666;
+    padding: 4px;
+  }
+  
+  a {
+    color: #0e64f9;
+    font-weight: 500;
+  }
+  
+  .register-button {
+    height: 48px;
+    font-size: 16px;
+    --border-radius: 10px;
+    --background: #FF69B4;
+    height: 50px;
+    color: white;
+    margin: 10px 0 20px;
+    
+  }
+  
+  
+  /* Device-specific adjustments */
+  @media screen and (max-width: 375px) {
+  
+    /* iPhone SE, smaller phones */
+    .title {
+      font-size: 24px;
+    }
+  
+    .subtitle {
+      font-size: 13px;
+    }
+  
+    .custom-item {
+      height: 46px;
+    }
+  }
+  
+  @media screen and (min-width: 390px) {
+  
+    /* iPhone 12/13, larger phones */
+    ion-content {
+      --padding-start: 20px;
+      --padding-end: 20px;
+    }
+  }
+  
+  /* Safe area insets for iOS */
+  .ios ion-content {
+    --padding-bottom: env(safe-area-inset-bottom);
+    --padding-top: env(safe-area-inset-top);
+  }
+  
+  .logo img {
+    width: 240px;
+    /* Ajusta esto al tamaño que desees */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+  }
+  
+  /* Estilos para el icono del calendario */
+  ion-item img {
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+    opacity: 0.7;
+  }
+  
+  ion-item img:active {
+    opacity: 1;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  .error {
+    color: red;
+    margin: 4px 0;
+  }
+  
+  h1 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    color: var(--ion-color-medium);
+    margin: 0 35px;
+    font-size: 25px;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .social-button {
+    --border-radius: 10px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+  }

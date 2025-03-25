@@ -132,7 +132,7 @@ export class AuthService {
       });
 
       // Redirige al usuario a la ruta 'tabs/tab1' después del registro exitoso
-      this.router.navigate(['/tabs/tab1']); // Sin el slash inicial
+      this.router.navigate(['/home']); // Sin el slash inicial
 
       return result;
     } catch (error) {
@@ -165,7 +165,7 @@ export class AuthService {
     try {
       await this._auth.signOut();
       this.userInfo.next(null);
-      this.router.navigate(['/welcome']); // Redirige a la ruta de welcome
+      this.router.navigate(['/first-page']); // Redirige a la ruta de welcome
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
       throw error;

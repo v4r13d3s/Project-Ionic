@@ -9,38 +9,31 @@
   <h1 class="ion-text-center title">Registrate</h1>
   <p class="ion-text-center subtitle">Registrate para una mejor experiencia!</p>
 
-  <form (ngSubmit)="register()">
+  <form (ngSubmit)="onSignUp()">
     <ion-item class="custom-item ion-margin-bottom">
-      <ion-input [(ngModel)]="username" name="username" label="" placeholder="Nombre" class="custom-input" maxlength="10"></ion-input>
+      <ion-input id="nombre" [(ngModel)]="additionalData.nombre" name="nombre" placeholder="Nombre" class="custom-input" maxlength="20"></ion-input>
     </ion-item>
     <div class="error" *ngIf="errors.username">{{ errors.username }}</div>
 
     <ion-item class="custom-item ion-margin-bottom">
-      <ion-input [(ngModel)]="email" name="email" label="" placeholder="Correo electrónico" type="email" class="custom-input" maxlength="30"></ion-input>
+      <ion-input name="apellido" id="apellido" [(ngModel)]="additionalData.apellido" placeholder="Apellido" class="custom-input" maxlength="25"></ion-input>
+    </ion-item>
+
+    <ion-item class="custom-item ion-margin-bottom">
+      <ion-input id="correo" [(ngModel)]="user.email" name="correo" placeholder="Correo electrónico" type="email" class="custom-input" maxlength="30"></ion-input>
     </ion-item>
     <div class="error" *ngIf="errors.email">{{ errors.email }}</div>
 
     <ion-item class="custom-item ion-margin-bottom">
-      <ion-input label="" placeholder="Número telefonico" type="tel" inputmode="tel" class="custom-input" inputmode="numeric" maxlength="10" pattern="\d*"></ion-input>
+      <ion-input placeholder="Ciudad" type="text" class="custom-input" maxlength="15" name="ciudad" id="ciudad" [(ngModel)]="additionalData.ciudad" ></ion-input>
     </ion-item>
-
-    <ion-item class="custom-item ion-margin-bottom">
-      <ion-input
-        class="custom-input"
-        placeholder="FechaNacimiento"
-        [(ngModel)]="fechaNacimiento"
-        (ionInput)="manejarEntrada($event)"
-        maxlength="10"
-      ></ion-input>
-      <img src="assets/icon/calendar.svg" (click)="openDatePicker()">
-    </ion-item>
-    
 
     <ion-item class="custom-item ion-margin-bottom">
       <ion-input 
         [type]="passwordType" 
         placeholder="Contraseña" 
-        [(ngModel)]="password" 
+        id="password" 
+        [(ngModel)]="user.password"
         name="password" 
         class="custom-input" 
         maxlength="15">
@@ -62,8 +55,9 @@
       <ion-input 
         [type]="confirmPasswordType" 
         placeholder="Confirmar contraseña" 
+        id="confirm-password"
         [(ngModel)]="confirmPassword" 
-        name="confirmPassword" 
+        name="confirm-Password" 
         class="custom-input" 
         maxlength="15">
       </ion-input>
@@ -83,8 +77,21 @@
     <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
 
     <div class="ion-padding-vertical" >
-      <ion-button expand="block" class="register-button">
+      <ion-button expand="block" class="register-button" type="submit">
         Registrarse
+      </ion-button>
+    </div>
+
+    <div class="divider">
+      <span>O continua con</span>
+    </div>
+
+    <div class="social-buttons">
+      <ion-button fill="outline" class="social-button" (click)="authService.signInWithGoogle()">
+        <img src="assets/images/google.png" alt="">
+      </ion-button>
+      <ion-button fill="outline" class="social-button">
+        <img src="assets/images/facebook.png" alt="">
       </ion-button>
     </div>
 

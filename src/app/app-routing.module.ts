@@ -8,16 +8,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'sign-up',
+    redirectTo: 'perfil',
     pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'pedidos',

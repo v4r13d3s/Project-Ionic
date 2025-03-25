@@ -8,14 +8,13 @@
       <p>Lo mejor te espera, solo aqui en Maria's Store!</p>
     </div>
     
-    <form>
+    <form class="form" (ngSubmit)="submit()">
       <ion-item class="custom-input">
-        <ion-input placeholder="Ingresa nombre" maxlength="10"></ion-input>
+        <ion-input placeholder="Ingresa tu correo" maxlength="30" type="email" name="email" id="email" [formControl]="form.controls.email"></ion-input>
       </ion-item>
       
       <ion-item class="custom-input">
-        <ion-input [type]="passwordType" placeholder="Contraseña" maxlength="15">
-        </ion-input>
+        <ion-input [type]="passwordType" placeholder="Contraseña" maxlength="15"  name="password" id="password" [formControl]="form.controls.password"></ion-input>
         <img *ngIf="passwordType === 'password'" src="assets/icon/eye.svg" alt="Mostrar contraseña"
           (click)="togglePasswordVisibility()">
         <img *ngIf="passwordType === 'text'" src="assets/icon/eye_off.svg" alt="Ocultar contraseña"
@@ -26,7 +25,7 @@
         <ion-text color="medium">Recuperar contraseña</ion-text>
       </div>
       
-      <ion-button expand="block" class="signin-button">
+      <ion-button expand="block" class="signin-button" type="submit">
         Iniciar sesión
       </ion-button>
       
@@ -34,17 +33,10 @@
         <span>O continua con</span>
       </div>
       
-      <div class="social-buttons">
-        <ion-button fill="outline" class="social-button">
-          <img src="assets/images/google.png" alt="">
-        </ion-button>
-        <ion-button fill="outline" class="social-button">
-          <img src="assets/images/facebook.png" alt="">
-        </ion-button>
-      </div>
+      <app-google-button (onClick)="submitWithGoogle()" fill="outline" class="social-button"></app-google-button>
       
       <div class="register-link">
-        <ion-text color="medium">¿No tienes cuenta? <a href="/register">Registrate ahora</a></ion-text>
+        <ion-text color="medium">¿No tienes cuenta? <a routerLink="/sign-up">Registrate ahora</a></ion-text>
       </div>
     </form>
   </div>
