@@ -1,0 +1,74 @@
+
+//Footer
+#footer {
+    position: fixed; 
+    bottom: 0;       
+    left: 0;         
+    width: 100%;     
+    z-index: 1000;   
+  }
+
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    margin-top: 30px;
+  }
+  
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+  }
+  
+  .profile-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: var(--ion-color-dark);
+  }
+  
+  .profile-email, .profile-phone {
+    font-size: 0.9rem;
+    color: var(--ion-color-medium);
+    margin: 0.3rem 0;
+  }
+  
+  .profile-options {
+    width: 80%;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  
+    ion-button {
+      --min-height: 44px; // Altura reducida (original ~56px)
+      --padding-start: 12px; // Padding interno izquierdo reducido
+      --padding-end: 12px; // Padding interno derecho reducido
+      --inner-padding-end: 8px; // Padding interno derecho adicional
+      margin-bottom: 6px; // Espacio entre items reducido
+      border-radius: 10px;
+      --background: var(--ion-color-light);
+
+      img {
+        margin-right: 12px; // Ajusta este valor según necesites
+        width: 20px; // Opcional: tamaño consistente para iconos
+        height: 20px;
+      }
+      
+      ion-label {
+        font-size: 20px; // Tamaño de texto ligeramente reducido
+        margin: 8px 0; // Margen vertical ajustado
+      }
+    }
+  
+
+  }

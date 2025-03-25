@@ -3,8 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AlzaSyAGHyN4sodzVpznL_x1WqPQn8mjmkRNBWA",
+    authDomain: "app-ionic-70020.firebaseapp.com",
+    projectId: "app-ionic-70020",
+    storageBucket: "app-ionic-70020.appspot.com",
+    messagingSenderId: "728916190812",
+    appId: "tu-app-id", // Aquí coloca el App ID que puedes encontrar en la consola de Firebase.
+    measurementId: "tu-measurement-id" // Opcional, para Analytics.
+  }
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

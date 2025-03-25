@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MenuLateralComponent } from './menu-lateral.component';
+import { GoogleButtonComponent } from './google-button.component';
 
-describe('MenuLateralComponent', () => {
-  let component: MenuLateralComponent;
-  let fixture: ComponentFixture<MenuLateralComponent>;
+describe('GoogleButtonComponent', () => {
+  let component: GoogleButtonComponent;
+  let fixture: ComponentFixture<GoogleButtonComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuLateralComponent ],
+      declarations: [ GoogleButtonComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MenuLateralComponent);
+    fixture = TestBed.createComponent(GoogleButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

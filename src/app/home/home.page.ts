@@ -181,9 +181,4 @@ export class HomePage {
     });
   }
 
-
-  
-
-
-
 }

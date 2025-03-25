@@ -1,0 +1,103 @@
+<ion-content class="ion-padding" class="content-background">
+  <div class="login-container">
+  <div class="logo-container">
+    <div class="logo">
+      <img src="assets/icon/logoms.svg" style="font-size: 20px;" alt="Logo">
+    </div>
+  </div>
+
+  <h1 class="ion-text-center title">Registrate</h1>
+  <p class="ion-text-center subtitle">Registrate para una mejor experiencia!</p>
+
+  <form (ngSubmit)="onSignUp()">
+    <ion-item class="custom-item ion-margin-bottom">
+      <ion-input id="nombre" [(ngModel)]="additionalData.nombre" name="nombre" placeholder="Nombre" class="custom-input" maxlength="20"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="errors.username">{{ errors.username }}</div>
+
+    <ion-item class="custom-item ion-margin-bottom">
+      <ion-input name="apellido" id="apellido" [(ngModel)]="additionalData.apellido" placeholder="Apellido" class="custom-input" maxlength="25"></ion-input>
+    </ion-item>
+
+    <ion-item class="custom-item ion-margin-bottom">
+      <ion-input id="correo" [(ngModel)]="user.email" name="correo" placeholder="Correo electrónico" type="email" class="custom-input" maxlength="30"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="errors.email">{{ errors.email }}</div>
+
+    <ion-item class="custom-item ion-margin-bottom">
+      <ion-input placeholder="Ciudad" type="text" class="custom-input" maxlength="15" name="ciudad" id="ciudad" [(ngModel)]="additionalData.ciudad" ></ion-input>
+    </ion-item>
+
+    <ion-item class="custom-item ion-margin-bottom">
+      <ion-input 
+        [type]="passwordType" 
+        placeholder="Contraseña" 
+        id="password" 
+        [(ngModel)]="user.password"
+        name="password" 
+        class="custom-input" 
+        maxlength="15">
+      </ion-input>
+      <img 
+        *ngIf="passwordType === 'password'" 
+        src="assets/icon/eye.svg" 
+        alt="Mostrar contraseña" 
+        (click)="togglePasswordVisibility('password')">
+      <img 
+        *ngIf="passwordType === 'text'" 
+        src="assets/icon/eye_off.svg" 
+        alt="Ocultar contraseña" 
+        (click)="togglePasswordVisibility('password')">
+    </ion-item>
+    <div class="error" *ngIf="errors.password">{{ errors.password }}</div>
+
+    <ion-item class="custom-item ion-margin-bottom">
+      <ion-input 
+        [type]="confirmPasswordType" 
+        placeholder="Confirmar contraseña" 
+        id="confirm-password"
+        [(ngModel)]="confirmPassword" 
+        name="confirm-Password" 
+        class="custom-input" 
+        maxlength="15">
+      </ion-input>
+      <img 
+        *ngIf="confirmPasswordType === 'password'" 
+        src="assets/icon/eye.svg" 
+        alt="Mostrar contraseña" 
+        (click)="togglePasswordVisibility('confirmPassword')">
+      <img 
+        *ngIf="confirmPasswordType === 'text'" 
+        src="assets/icon/eye_off.svg" 
+        alt="Ocultar contraseña" 
+        (click)="togglePasswordVisibility('confirmPassword')">
+    </ion-item>
+    <div class="error" *ngIf="errors.confirmPassword">{{ errors.confirmPassword }}</div>
+    
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <div class="ion-padding-vertical" >
+      <ion-button expand="block" class="register-button" type="submit">
+        Registrarse
+      </ion-button>
+    </div>
+
+    <div class="divider">
+      <span>O continua con</span>
+    </div>
+
+    <div class="social-buttons">
+      <ion-button fill="outline" class="social-button" (click)="authService.signInWithGoogle()">
+        <img src="assets/images/google.png" alt="">
+      </ion-button>
+      <ion-button fill="outline" class="social-button">
+        <img src="assets/images/facebook.png" alt="">
+      </ion-button>
+    </div>
+
+    <div class="ion-text-center ion-padding-vertical">
+      <ion-text>¿Ya tienes cuenta? <a href="/login">Inicia Sesión</a></ion-text>
+    </div>
+  </form>
+</div>
+</ion-content>
