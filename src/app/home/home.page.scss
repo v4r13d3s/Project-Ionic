@@ -116,3 +116,12 @@ app-item-product {
   width: 100%;     
   z-index: 1000;   
 }
+
+app-item-chip {
+  transition: transform 0.2s ease;
+  
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
