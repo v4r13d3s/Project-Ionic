@@ -1,7 +1,7 @@
 <ion-card (click)="navigateToDetail(nombre, precio, imageUrl, category, description)">
   <ion-icon name="cart-outline" class="cart-icon" (click)="addToCart(); $event.stopPropagation();"></ion-icon>
   <div class="image-container" >
-    <img alt="Producto" [src]="imageUrl" />
+    <img alt="Producto" [src]="imageUrl"/>
   </div>
   <div>
     <div class="rating">
@@ -15,5 +15,10 @@
   </div>
 
   <p>{{ description }}</p>
-  <ion-icon name="heart" class="favorite-icon" (click)="addToFavorites(); $event.stopPropagation(); "></ion-icon>
+  <ion-icon 
+    [name]="isFavorite ? 'heart' : 'heart-outline'" 
+    class="favorite-icon" 
+    [style.color]="isFavorite ? '#ff0000' : '#000000'"
+    (click)="toggleFavorite(); $event.stopPropagation()">
+  </ion-icon>
 </ion-card>

@@ -9,7 +9,14 @@
 
   .img-rana {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 90vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Ajusta según necesites */
+    
+    img {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+    }
   }
+

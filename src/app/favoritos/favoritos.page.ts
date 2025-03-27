@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoritesService } from '../services/favorites.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritosPage implements OnInit {
 
-  constructor() { }
+  favorites$ = this.favoritesService.favorites$;
+
+  constructor(private favoritesService: FavoritesService) { }
 
   ngOnInit() {
   }
