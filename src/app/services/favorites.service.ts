@@ -40,9 +40,10 @@ export class FavoritesService {
     this.favoritesSubject.next(favorites);
   }
 
-  // Verificar si un producto es favorito
-  isFavorite(productName: string): boolean {
-    return this.favoritesSubject.value.some(fav => fav.nombre === productName);
+  // En favorites.service.ts
+  async isFavorite(productName: string): Promise<boolean> {
+    const favorites = this.favoritesSubject.value;
+    return favorites.some(fav => fav.nombre === productName);
   }
 
   getFavorites() {

@@ -29,8 +29,9 @@ export class ItemProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Verificar si el producto ya está en favoritos al cargar
-    this.isFavorite = this.favoritesService.isFavorite(this.nombre);
+    this.favoritesService.favorites$.subscribe(favorites => {
+      this.isFavorite = favorites.some(fav => fav.nombre === this.nombre);
+    });
   }
   // Navegar a la página de detalles con los datos del producto
   navigateToDetail(nombre: string, precio: string, productUrl: string, category: string, description: string) {
