@@ -6,4 +6,10 @@
     width: 100%;     
     z-index: 1000;   
   }
-  
+
+  .img-rana {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 90vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+  }

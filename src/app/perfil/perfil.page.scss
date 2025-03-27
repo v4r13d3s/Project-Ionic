@@ -3,19 +3,34 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
   }
   
   .profile-header {
     width: 100%;
     margin-bottom: 2rem;
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  
 
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 1rem;
+
+  ion-avatar {
+    width: 150px; /* Ajusta el tamaño deseado del círculo */
+    height: auto; /* Asegúrate de que sea un círculo perfecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+  
+    img {
+      width: 100%; /* La imagen ocupará todo el contenedor */
+      height: 100%; /* Mantiene la proporción dentro del círculo */
+      border-radius: 50%; /* Asegura que la imagen sea redonda */
+      object-fit: cover; /* Ajusta la imagen sin deformarla */
+    }
   }
   
   .profile-name {
@@ -67,6 +82,20 @@
     }
   }
 
+  .no-user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    text-align: center;
+  
+    ion-button {
+      margin-top: 20px;
+      max-width: 200px;
+    }
+  }
+
   
 //Footer
 #footer {
@@ -75,4 +104,8 @@
   left: 0;         
   width: 100%;     
   z-index: 1000;   
+}
+
+p {
+  margin-top: 0;
 }
