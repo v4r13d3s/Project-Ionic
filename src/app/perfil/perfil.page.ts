@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/features/auth.service';
+import { UserInfo } from '../auth/features/auth.service'; // Importa la interfaz
 
 @Component({
   selector: 'app-perfil',
@@ -8,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  user: UserInfo | null = null;
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.authService.currentUser$.subscribe((user) => {
+      this.user = user;
+    });
+  }
+
+  logout() {
+    this.authService.signOut();
   }
 
 }

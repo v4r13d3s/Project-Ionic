@@ -27,7 +27,7 @@ export interface User {
   password: string;
 }
 
-interface UserInfo {
+export interface UserInfo {
   displayName: string | null;
   photoURL: string | null;
   email: string | null;
@@ -99,12 +99,16 @@ export class AuthService {
 
       const uid = userCredential.user.uid;
 
+      // Asignar imagen por defecto
+      const defaultPhotoURL = 'assets/images/default-avatar.png';
+
       const userDocRef = doc(this.firestore, 'users', uid);
       await setDoc(userDocRef, {
         nombre: additionalData.nombre,
         apellido: additionalData.apellido,
         ciudad: additionalData.ciudad,
         email: user.email,
+        photoURL: defaultPhotoURL // Guarda la URL de la imagen por defect
       });
 
       console.log('Usuario registrado correctamente:', userCredential.user.uid);
@@ -121,12 +125,13 @@ export class AuthService {
     try {
       const result = await signInWithPopup(this._auth, provider);
       const user = result.user;
+      const defaultPhotoURL = 'assets/images/default-avatar.png'; // Definición local
 
       const additionalData = await this.getUserAdditionalData(user.uid);
 
       this.userInfo.next({
         displayName: additionalData?.nombre || user.displayName,
-        photoURL: user.photoURL,
+        photoURL: defaultPhotoURL,
         email: user.email,
         nombre: additionalData?.nombre,
       });

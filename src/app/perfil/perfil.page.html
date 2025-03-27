@@ -15,14 +15,14 @@
   </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="profile-container">
+  <!-- Sección para usuario logeado -->
+  <div *ngIf="user; else noUser" class="profile-container">
     <div class="profile-header">
-      <ion-avatar class="profile-avatar">
-        <img src="https://i.pravatar.cc/150?img=5" alt="Foto de perfil">
+      <ion-avatar>
+        <img [src]="user?.photoURL || 'assets/images/default-avatar.png'" />
       </ion-avatar>
-      <h2 class="profile-name">Oscar Ivan Escamilla Guevara</h2>
-      <p class="profile-email">oscar&#64;gmail.com</p>
-      <p class="profile-phone">2711405858</p>
+      <h2>{{ user.nombre || user.displayName || 'Usuario' }}</h2>
+      <p>{{ user.email }}</p>
     </div>
 
     <ion-list class="profile-options">
@@ -41,12 +41,22 @@
         <img src="assets/icon/lock.svg" alt="">
       </ion-button>
 
-      <ion-button>
+      <ion-button (click)="logout()">
         <ion-label>Cerrar sesión</ion-label>
         <img src="assets/icon/logout.svg" alt="">
       </ion-button>
     </ion-list>
   </div>
+
+  <!-- Sección para usuario NO logeado -->
+  <ng-template #noUser>
+    <div class="no-user-container">
+      <ion-text color="medium">
+        <p>No has iniciado sesión.</p>
+      </ion-text>
+      <ion-button expand="block" routerLink="/login">Iniciar sesión</ion-button>
+    </div>
+  </ng-template>
 
 </ion-content>
 

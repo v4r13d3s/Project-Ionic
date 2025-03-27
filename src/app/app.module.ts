@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, StatusPopoverComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CommonModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot({ mode: 'ios'}), AppRoutingModule, CommonModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideFirebaseApp(() =>
       initializeApp({
