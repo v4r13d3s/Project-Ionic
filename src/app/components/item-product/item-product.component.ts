@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service'; // Importar el servicio
+import { FavoritesService } from '../../services/favorites.service'; // Importa el servicio de favoritos
 
 @Component({
   selector: 'app-item-product',
@@ -15,19 +16,23 @@ export class ItemProductComponent implements OnInit {
   @Input() precio: string = '';
   @Input() category: string = ''; 
   @Input() description: string = ''; 
-  @Input() favorite: boolean = false; 
+  @Input() isFavorite: boolean = false; // Estado inicial del corazón
+
 
   // Lista para simular productos favoritos
   favorites: any[] = [];
   
   randomNumber: number;
 
-  constructor(private router: Router, private cartService: CartService) {
+  constructor(private router: Router, private cartService: CartService, private favoritesService: FavoritesService) {
     this.randomNumber = Math.floor(Math.random() * 5) + 1;
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.favoritesService.favorites$.subscribe(favorites => {
+      this.isFavorite = favorites.some(fav => fav.nombre === this.nombre);
+    });
+  }
   // Navegar a la página de detalles con los datos del producto
   navigateToDetail(nombre: string, precio: string, productUrl: string, category: string, description: string) {
     this.router.navigate(['product-detail'], {
@@ -35,15 +40,23 @@ export class ItemProductComponent implements OnInit {
     });
   }
 
-  // Función para agregar un producto a favoritos
-  addToFavorites() {
-    const index = this.favorites.findIndex(fav => fav.name === this.nombre);
-    if (index !== -1) {
-      this.favorites.splice(index, 1); 
+  // Método para alternar favoritos
+  toggleFavorite() {
+    this.isFavorite = !this.isFavorite;
+    
+    const product = {
+      imageUrl: this.imageUrl,
+      nombre: this.nombre,
+      precio: this.precio,
+      category: this.category,
+      description: this.description
+    };
+
+    if (this.isFavorite) {
+      this.favoritesService.addToFavorites(product);
     } else {
-      this.favorites.push({ name: this.nombre, imageUrl: this.imageUrl, price: this.precio, category: this.category, description: this.description });
+      this.favoritesService.removeFromFavorites(this.nombre);
     }
-    console.log(this.favorites);
   }
 
   // Métodos para manejar la cantidad de productos

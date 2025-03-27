@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart.service'; // Importar el servicio del carrito
+import { FavoritesService } from '../services/favorites.service'; // Importa el servicio
 
 @Component({
   selector: 'app-product-detail',
@@ -19,7 +20,7 @@ export class ProductDetailPage implements OnInit {
   isFavorite = false; // Estado inicial: no está en favoritos
   productCount: number = 0; // Contador de productos
 
-  constructor(private route: ActivatedRoute, private cartService: CartService) {
+  constructor(private route: ActivatedRoute, private cartService: CartService, private favoritesService: FavoritesService) {
     this.randomNumber = Math.floor(Math.random() * 5) + 1;
   }
 
@@ -30,13 +31,36 @@ export class ProductDetailPage implements OnInit {
       this.productUrl = params['productUrl'];
       this.category = params['category'];
       this.description = params['description']
+      // Verifica si el producto está en favoritos al cargar
+      this.checkFavoriteStatus();
     });
   }
 
+  // Verifica el estado de favoritos
+  checkFavoriteStatus() {
+    this.favoritesService.isFavorite(this.nombre).then(isFav => {
+      this.isFavorite = isFav;
+    });
+  } 
   
   
+  // Alternar favoritos
   toggleFavorite() {
-    this.isFavorite = !this.isFavorite; // Cambia el estado al hacer clic
+    const product = {
+      nombre: this.nombre,
+      precio: this.precio,
+      imageUrl: this.productUrl,
+      category: this.category,
+      description: this.description
+    };
+
+    if (this.isFavorite) {
+      this.favoritesService.removeFromFavorites(this.nombre);
+    } else {
+      this.favoritesService.addToFavorites(product);
+    }
+    
+    this.isFavorite = !this.isFavorite;
   }
 
   addToCart() {
