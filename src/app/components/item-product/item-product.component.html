@@ -1,7 +1,7 @@
-<ion-card (click)="navigateToDetail(nombre, precio, productUrl, category, description)">
+<ion-card (click)="navigateToDetail(nombre, precio, imageUrl, category, description)">
   <ion-icon name="cart-outline" class="cart-icon" (click)="addToCart(); $event.stopPropagation();"></ion-icon>
   <div class="image-container" >
-    <img alt="Producto" [src]="productUrl" />
+    <img alt="Producto" [src]="imageUrl" />
   </div>
   <div>
     <div class="rating">

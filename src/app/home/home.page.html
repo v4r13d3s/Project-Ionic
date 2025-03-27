@@ -17,7 +17,12 @@
 <ion-content [fullscreen]="true">
 
   <div style="display: flex; align-items: center;">
-    <ion-searchbar animated="true" placeholder="Buscar Producto" style="flex-grow: 1; --border-radius: 20px;">
+    <ion-searchbar 
+      [(ngModel)]="searchText" 
+      animated="true" 
+      placeholder="Buscar Producto" 
+      style="flex-grow: 1; --border-radius: 20px;" 
+      (ionInput)="filterProducts()"> <!-- Se llama al método filterProducts cuando se realiza una búsqueda -->
     </ion-searchbar>
   </div>
 
@@ -79,7 +84,7 @@
   <!-- Cards de productos -->
   <div class="product-container">
     <app-item-product *ngFor="let product of products" 
-    [productUrl]="product.productUrl" 
+    [imageUrl]="product.imageUrl" 
     [nombre]="product.nombre"
     [precio]="product.precio" 
     [category]="product.category"

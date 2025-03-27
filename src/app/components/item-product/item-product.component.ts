@@ -10,7 +10,7 @@ import { CartService } from '../../services/cart.service'; // Importar el servic
 })
 export class ItemProductComponent implements OnInit {
 
-  @Input() productUrl: string = '';
+  @Input() imageUrl: string = '';
   @Input() nombre: string = '';
   @Input() precio: string = '';
   @Input() category: string = ''; 
@@ -41,7 +41,7 @@ export class ItemProductComponent implements OnInit {
     if (index !== -1) {
       this.favorites.splice(index, 1); 
     } else {
-      this.favorites.push({ name: this.nombre, imageUrl: this.productUrl, price: this.precio, category: this.category, description: this.description });
+      this.favorites.push({ name: this.nombre, imageUrl: this.imageUrl, price: this.precio, category: this.category, description: this.description });
     }
     console.log(this.favorites);
   }
@@ -62,7 +62,7 @@ export class ItemProductComponent implements OnInit {
   // Agregar producto al carrito
   addToCart() {
     const product = {
-      productUrl: this.productUrl,
+      productUrl: this.imageUrl,
       nombre: this.nombre,
       precio: this.precio,
       category: this.category,
