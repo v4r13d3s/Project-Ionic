@@ -26,23 +26,23 @@
     </div>
 
     <ion-list class="profile-options">
-      <ion-button>
-        <ion-label>Información general</ion-label>
+      <ion-button class="button-with-divider">
+        <ion-label routerLink="/informacion-perfil">Información general</ion-label>
         <img src="assets/icon/edit.svg" alt="">
       </ion-button>
-
-      <ion-button>
+    
+      <ion-button class="button-with-divider">
         <ion-label>Cambiar dirección</ion-label>
         <img src="assets/icon/location.svg" alt="">
       </ion-button>
-
-      <ion-button>
+    
+      <ion-button class="button-with-divider">
         <ion-label>Cambiar contraseña</ion-label>
         <img src="assets/icon/lock.svg" alt="">
       </ion-button>
-
+    
       <ion-button (click)="logout()">
-        <ion-label>Cerrar sesión</ion-label>
+        <ion-label style="color: red;">Cerrar sesión</ion-label>
         <img src="assets/icon/logout.svg" alt="">
       </ion-button>
     </ion-list>

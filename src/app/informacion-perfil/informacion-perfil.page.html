@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Información general</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-image-container">
+    <img src="assets/images/profile-illustration.png" alt="Profile Illustration" class="profile-illustration">
+  </div>
+  
+  <div class="profile-form">
+    <div class="form-group">
+      <ion-label>Nombre Completo</ion-label>
+      <div class="input-container">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-input disabled value="{{profileData.name}}"></ion-input>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <ion-label>Correo Electrónico</ion-label>
+      <div class="input-container">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-input disabled value="{{profileData.email}}" type="email"></ion-input>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <ion-label>Número de Teléfono</ion-label>
+      <div class="input-container">
+        <ion-icon name="phone-portrait-outline"></ion-icon>
+        <ion-input disabled value="{{profileData.phone}}" type="tel"></ion-input>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group half-width">
+        <ion-label>País</ion-label>
+        <div class="input-container">
+          <ion-input disabled value="{{profileData.country}}"></ion-input>
+        </div>
+      </div>
+      
+      <div class="form-group half-width">
+        <ion-label>Género</ion-label>
+        <div class="input-container">
+          <ion-input disabled value="{{profileData.gender}}"></ion-input>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <ion-label>Dirección</ion-label>
+      <div class="input-container">
+        <ion-icon name="location-outline"></ion-icon>
+        <ion-input disabled value="{{profileData.address}}"></ion-input>
+      </div>
+    </div>
+    
+    <div class="button-container">
+      <ion-button expand="block" (click)="goToEditProfile()">
+        EDITAR
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

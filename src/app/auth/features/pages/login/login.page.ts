@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular'; // Importa ToastController
-import { AuthService } from '../../features/auth.service';
+import { AuthService } from '../../auth.service';
 
 export interface FormSignIn {
   email: FormControl<string | null>;
@@ -24,6 +24,8 @@ export class LoginPage {
   private _router = inject(Router);
   private _toastController = inject(ToastController); // Inyecta ToastController
 
+  loginMethod: 'firebase' | 'api' = 'firebase';
+
   form = this._formBuilder.group<FormSignIn>({
     email: this._formBuilder.control('', [
       Validators.required,
@@ -34,61 +36,37 @@ export class LoginPage {
 
   async submit() {
     if (this.form.invalid) {
-      this.showToast(
-        'Por favor, completa todos los campos correctamente.',
-        'danger'
-      );
+      this.showToast('Por favor, completa todos los campos correctamente.', 'danger');
       return;
     }
 
     const { email, password } = this.form.value;
+    const correo = email || ''; // Cambio de nombre para coincidir con tu API
 
-    if (!email || !password) {
-      this.showToast(
-        'Por favor, proporciona un correo electrónico y una contraseña.',
-        'danger'
-      );
+    if (!correo || !password) {
+      this.showToast('Por favor, proporciona un correo electrónico y una contraseña.', 'danger');
       return;
     }
 
     try {
-      const isEmailInFirestore = await this._authService.isEmailInFirestore(
-        email
-      );
-
-      if (isEmailInFirestore) {
-        try {
-          await this._authService.signIn({ email, password });
+      if (this.loginMethod === 'firebase') {
+        // Lógica existente de Firebase
+        const isEmailInFirestore = await this._authService.isEmailInFirestore(correo);
+        if (isEmailInFirestore) {
+          await this._authService.signIn({ email: correo, password: password || '' });
           this.showToast('Inicio de sesión exitoso', 'success');
           this._router.navigateByUrl('/home');
-        } catch (error: any) {
-          // Manejar errores específicos de autenticación
-          if (error.message === 'Contraseña incorrecta') {
-            this.showToast(
-              'La contraseña es incorrecta. Por favor, verifica tus credenciales.',
-              'danger'
-            );
-          } else if (error.message === 'Usuario no encontrado') {
-            this.showToast(
-              'No se encontró ninguna cuenta con este correo electrónico.',
-              'danger'
-            );
-          } else {
-            this.showToast(
-              'Error al iniciar sesión: ' + error.message,
-              'danger'
-            );
-          }
+        } else {
+          this.showToast('El correo no está registrado.', 'danger');
         }
       } else {
-        this.showToast('El correo no está registrado.', 'danger');
+        // Nueva lógica para API REST
+        await this._authService.signInWithApi(correo, password || '');
+        this.showToast('Inicio de sesión exitoso', 'success');
+        this._router.navigateByUrl('/home');
       }
     } catch (error: any) {
-      console.error('Error en el proceso:', error);
-      this.showToast(
-        'Ocurrió un error al iniciar sesión. Por favor, intenta de nuevo.',
-        'danger'
-      );
+      this.showToast(error.message || 'Error al iniciar sesión', 'danger');
     }
   }
 

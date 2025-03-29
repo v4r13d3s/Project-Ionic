@@ -9,7 +9,7 @@ import {
 
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
-
+import { environment } from '../../../environments/environment';
 import {
   Firestore,
   collection,
@@ -27,6 +27,10 @@ export interface User {
   password: string;
 }
 
+// ... imports existentes ...
+import { ApiAuthService } from './api-auth.service';
+import { ApiUser } from './interfaces/api-user.interface';
+
 export interface UserInfo {
   displayName: string | null;
   photoURL: string | null;
@@ -43,10 +47,10 @@ export class AuthService {
 
   private firestore: Firestore = inject(Firestore);
   private userInfo = new BehaviorSubject<UserInfo | null>(null);
-
+  private apiUrl = `${environment.apiUrl}/auth`;
   currentUser$ = this.userInfo.asObservable();
 
-  constructor() {
+  constructor(private apiAuthService: ApiAuthService,) {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       this.userInfo.next(JSON.parse(storedUser));
@@ -166,11 +170,22 @@ export class AuthService {
     return this._auth.currentUser;
   }
 
-  async signOut() {
+   // Modificar el método signOut para manejar ambos casos
+   async signOut() {
     try {
-      await this._auth.signOut();
+      // Cerrar sesión en Firebase si está autenticado allí
+      if (this._auth.currentUser) {
+        await this._auth.signOut();
+      }
+      
+      // Cerrar sesión en API REST si está autenticado allí
+      if (this.apiAuthService.isAuthenticated()) {
+        this.apiAuthService.logout();
+      }
+      
       this.userInfo.next(null);
-      this.router.navigate(['/first-page']); // Redirige a la ruta de welcome
+      localStorage.removeItem('user');
+      this.router.navigate(['/first-page']);
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
       throw error;
@@ -242,5 +257,74 @@ export class AuthService {
     // Redirigir al login
     this.router.navigate(['/login']); // Cambia '/login' si la ruta es diferente
   }
+
+  // Método para registro con API REST
+  async signUpWithApi(userData: {
+    nombre: string;
+    correo: string;
+    password: string;
+    telefono: string;
+    fechaNacimiento: string;
+    image?: string;
+  }): Promise<ApiUser> {
+    try {
+      const response = await this.apiAuthService.register(userData).toPromise();
+      
+      if (response && response.usuario) {
+        const userInfoData = {
+          displayName: response.usuario.nombre,
+          email: response.usuario.correo,
+          photoURL: response.usuario.imageUrl || 'assets/images/default-avatar.png',
+          nombre: response.usuario.nombre,
+          loginType: 'api'
+        };
+        
+        localStorage.setItem('user', JSON.stringify(userInfoData));
+        this.userInfo.next(userInfoData);
+        
+        return response.usuario;
+      }
+      throw new Error('No se recibieron datos del usuario');
+    } catch (error: any) {
+      console.error('Error en registro con API:', error);
+      
+      if (error.error?.message) {
+        throw new Error(error.error.message);
+      }
+      throw new Error(error.message || 'Error desconocido al registrarse');
+    }
+  }
+
+  // Método para login con API REST
+  async signInWithApi(correo: string, password: string): Promise<ApiUser> {
+    try {
+      const response = await this.apiAuthService.login(correo, password).toPromise();
+      
+      if (response && response.usuario) {
+        const userData = {
+          displayName: response.usuario.nombre,
+          email: response.usuario.correo,
+          photoURL: response.usuario.imageUrl || 'assets/images/default-avatar.png',
+          nombre: response.usuario.nombre,
+          loginType: 'api'
+        };
+        
+        localStorage.setItem('user', JSON.stringify(userData));
+        this.userInfo.next(userData);
+        
+        return response.usuario;
+      }
+      throw new Error('No se recibieron datos del usuario');
+    } catch (error: any) {
+      console.error('Error en login con API:', error);
+      
+      if (error.error?.message) {
+        throw new Error(error.error.message);
+      }
+      throw new Error(error.message || 'Error desconocido al iniciar sesión');
+    }
+  }
+
+
 
 }
