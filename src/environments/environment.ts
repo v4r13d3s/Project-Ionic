@@ -12,7 +12,10 @@ export const environment = {
     messagingSenderId: "728916190812",
     appId: "tu-app-id", // Aquí coloca el App ID que puedes encontrar en la consola de Firebase.
     measurementId: "tu-measurement-id" // Opcional, para Analytics.
-  }
+
+    
+  },
+  apiUrl: 'https://apirestful-0l0n.onrender.com/api/api' // Cambia esto por tu URL real
 };
 
 

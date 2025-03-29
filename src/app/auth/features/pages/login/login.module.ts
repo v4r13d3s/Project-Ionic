@@ -10,7 +10,7 @@ import { GoogleButtonComponent } from 'src/app/ui/google-button/google-button.co
 
 import { LoginPage } from './login.page';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 
 @NgModule({
   imports: [

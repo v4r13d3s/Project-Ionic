@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="profile-form">
+    <div class="form-group">
+      <ion-label>Nombre Completo</ion-label>
+      <div class="input-container">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-input [(ngModel)]="profileData.name"></ion-input>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <ion-label>Correo Electrónico</ion-label>
+      <div class="input-container">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-input [(ngModel)]="profileData.email" type="email"></ion-input>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <ion-label>Número de Teléfono</ion-label>
+      <div class="input-container">
+        <ion-icon name="phone-portrait-outline"></ion-icon>
+        <ion-input [(ngModel)]="profileData.phone" type="tel"></ion-input>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <ion-label>Dirección</ion-label>
+      <div class="input-container">
+        <ion-icon name="location-outline"></ion-icon>
+        <ion-input [(ngModel)]="profileData.address"></ion-input>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <ion-label>Género</ion-label>
+      <div class="gender-slider-container">
+        <swiper-container
+          #genderSwiper
+          [slidesPerView]="slideOpts.slidesPerView"
+          [centeredSlides]="slideOpts.centeredSlides"
+          [spaceBetween]="slideOpts.spaceBetween"
+          (swiperslidechange)="onSlideChange()"
+        >
+          <swiper-slide *ngFor="let gender of ['No especificado', 'Masculino', 'Femenino']">
+            <div class="gender-option" [class.active]="profileData.gender === gender">
+              {{ gender }}
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+    
+    <div class="button-container">
+      <ion-button expand="block" (click)="saveChanges()">
+        GUARDAR
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

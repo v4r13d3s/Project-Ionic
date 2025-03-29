@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { AlertController, ModalController } from '@ionic/angular';
 import { DateTime } from 'luxon'; // Asegúrate de tener esta dependencia instalada
-import { DatePickerModal } from '../../../components/date-picker-modal/date-picker-modal.component';
+import { DatePickerModal } from '../../../../components/date-picker-modal/date-picker-modal.component';
 import { Router } from '@angular/router';
-import { AuthService, User } from '../auth.service';
+import { AuthService, User } from '../../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -17,9 +17,11 @@ export class SignUpPage implements OnInit {
   user: User = { email: '', password: '' };
   additionalData = { nombre: '', apellido: '', ciudad: '' };
   errorMessage: string = ''; // Para mostrar mensajes de error
-  
 
+  registerMethod: 'firebase' | 'api' = 'firebase';
   fechaNacimiento: string = '';
+  telefono: string = '';
+
   username: string = '';
   email: string = '';
   password: string = '';
@@ -46,38 +48,30 @@ export class SignUpPage implements OnInit {
   //implementación del authservices
   async onSignUp() {
     try {
-      // Verifica primero si el correo ya está registrado
-      const isRegistered = await this.authService.isEmailRegistered(
-        this.user.email
-      );
-      if (isRegistered) {
-        this.errorMessage =
-          'El correo electrónico ya está registrado. Por favor, use otro correo o inicie sesión.';
-        return;
-      }
-
-      // Si no está registrado, procede con el registro
-      await this.authService.signUp(this.user, this.additionalData);
-      this.router.navigate(['/home']);
-    } catch (error: unknown) {
-      console.error('Error en el registro:', error);
-
-      // Manejo específico para diferentes tipos de errores de Firebase
-      if (error instanceof Error) {
-        if (error.message.includes('auth/email-already-in-use')) {
-          this.errorMessage =
-            'Este correo electrónico ya está en uso. Por favor, use otro correo o inicie sesión.';
-        } else if (error.message.includes('auth/weak-password')) {
-          this.errorMessage =
-            'La contraseña es demasiado débil. Use al menos 6 caracteres.';
-        } else if (error.message.includes('auth/invalid-email')) {
-          this.errorMessage = 'El formato del correo electrónico es inválido.';
-        } else {
-          this.errorMessage = error.message || 'Ocurrió un error desconocido';
+      if (this.registerMethod === 'firebase') {
+        // Lógica existente de Firebase
+        const isRegistered = await this.authService.isEmailRegistered(this.user.email);
+        if (isRegistered) {
+          this.errorMessage = 'El correo electrónico ya está registrado.';
+          return;
         }
+        await this.authService.signUp(this.user, this.additionalData);
       } else {
-        this.errorMessage = 'Ocurrió un error desconocido';
+        // Nueva lógica para API REST
+        const userData = {
+          nombre: this.additionalData.nombre,
+          correo: this.user.email,
+          password: this.user.password,
+          telefono: this.telefono,
+          fechaNacimiento: this.fechaNacimiento
+          // image puede añadirse aquí si se implementa subida de imágenes
+        };
+        await this.authService.signUpWithApi(userData);
       }
+      
+      this.router.navigate(['/home']);
+    } catch (error: any) {
+      this.errorMessage = error.message || 'Ocurrió un error en el registro';
     }
   }
 

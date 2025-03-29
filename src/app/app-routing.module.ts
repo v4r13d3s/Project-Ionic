@@ -49,11 +49,19 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./auth/features/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./auth/features/pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'sign-up',
-    loadChildren: () => import('./auth/features/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+    loadChildren: () => import('./auth/features/pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'informacion-perfil',
+    loadChildren: () => import('./informacion-perfil/informacion-perfil.module').then( m => m.InformacionPerfilPageModule)
+  },
+  {
+    path: 'editar-perfil',
+    loadChildren: () => import('./editar-perfil/editar-perfil.module').then( m => m.EditarPerfilPageModule)
   },
 ];
 

@@ -51,35 +51,58 @@
     background: transparent;
     display: flex;
     flex-direction: column;
-    gap: 20px;
   
     ion-button {
       --min-height: 44px; // Altura reducida (original ~56px)
       margin-bottom: 6px; // Espacio entre items reducido
-      border-radius: 10px;
-      --background: var(--ion-color-light);
       display: flex;
+      --background: transparent;
+      --background-activated: transparent; /* Quita el color de fondo al activar */
+      --background-focused: transparent; /* Quita el color de fondo al enfocar */
+      --ripple-color: transparent; /* Quita el efecto ripple */
+      --color-activated: #3d34eb; /* Mantiene el color del texto igual al activar */
       flex-direction: row;
-      gap: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
+      padding: 10px 0;
 
-      &:active {
-        transform: scale(0.95);
-      }
-      
       img {
         margin-left: 12px; // Ajusta este valor según necesites
-        width: 20px; // Opcional: tamaño consistente para iconos
-        height: 20px;
+        width: 25px; // Opcional: tamaño consistente para iconos
+        height:auto;
       }
       
       ion-label {
-        font-size: 20px; // Tamaño de texto ligeramente reducido
+        font-size: 25px; // Tamaño de texto ligeramente reducido
         margin: 8px 0; // Margen vertical ajustado
-        text-align: left;
+      
+        &:active {
+          transform: scale(0.95);
+        }
+        
       }
     }
+  }
+
+  
+/* Si quieres colores diferentes para cada ícono, puedes hacer esto: */
+ion-button:nth-child(1) img {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(45%) saturate(2371%) hue-rotate(211deg) brightness(100%) contrast(98%); /* Azul */
+}
+
+ion-button:nth-child(2) img {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(45%) saturate(2371%) hue-rotate(211deg) brightness(100%) contrast(98%); /* Azul */
+}
+
+ion-button:nth-child(3) img {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(45%) saturate(2371%) hue-rotate(211deg) brightness(100%) contrast(98%); /* Azul */
+}
+
+ion-button:nth-child(4) img {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); /* Rojo */
+}
+  
+  .button-with-divider {
+    border-bottom: 1px solid black;
+    margin-bottom: 0;
   }
 
   .no-user-container {
