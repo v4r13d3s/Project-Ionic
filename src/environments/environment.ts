@@ -4,18 +4,8 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AlzaSyAGHyN4sodzVpznL_x1WqPQn8mjmkRNBWA",
-    authDomain: "app-ionic-70020.firebaseapp.com",
-    projectId: "app-ionic-70020",
-    storageBucket: "app-ionic-70020.appspot.com",
-    messagingSenderId: "728916190812",
-    appId: "tu-app-id", // Aquí coloca el App ID que puedes encontrar en la consola de Firebase.
-    measurementId: "tu-measurement-id" // Opcional, para Analytics.
-
-    
-  },
-  apiUrl: 'https://apirestful-0l0n.onrender.com/api/api' // Cambia esto por tu URL real
+  apiUrl: 'https://apirestful-0l0n.onrender.com/api/api', // Cambia esto por tu URL real
+  
 };
 
 
