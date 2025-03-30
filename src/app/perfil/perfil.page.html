@@ -19,7 +19,7 @@
   <div *ngIf="user; else noUser" class="profile-container">
     <div class="profile-header">
       <ion-avatar>
-        <img [src]="user?.photoURL || 'assets/images/default-avatar.png'" />
+        <img [src]="user.photoURL || 'assets/images/default-avatar.png'" />
       </ion-avatar>
       <h2>{{ user.nombre || user.displayName || 'Usuario' }}</h2>
       <p>{{ user.email }}</p>
